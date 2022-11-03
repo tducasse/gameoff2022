@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://CardManager/Manager.gd" type="Script" id=1]
+
+[node name="Manager" type="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="CardsContainer" type="ScrollContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 576.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cards" type="GridContainer" parent="CardsContainer"]
+margin_right = 1024.0
+margin_bottom = 576.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 24
+custom_constants/hseparation = 24
+columns = 6
+
+[node name="Actions" type="HBoxContainer" parent="."]
+margin_top = 580.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Create" type="Button" parent="Actions"]
+margin_right = 85.0
+margin_bottom = 20.0
+text = "Create Card"
+
+[node name="Back" type="Button" parent="Actions"]
+margin_left = 89.0
+margin_right = 187.0
+margin_bottom = 20.0
+text = "Back to game"
+
+[node name="CreatePopup" type="AcceptDialog" parent="."]
+margin_right = 83.0
+margin_bottom = 58.0
+
+[node name="Fields" type="VBoxContainer" parent="CreatePopup"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 75.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NameLabel" type="Label" parent="CreatePopup/Fields"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Name"
+
+[node name="NameField" type="LineEdit" parent="CreatePopup/Fields"]
+margin_right = 58.0
+margin_bottom = 24.0
+
+[node name="TypeLabel" type="Label" parent="CreatePopup/Fields"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Type"
+
+[node name="TypeField" type="LineEdit" parent="CreatePopup/Fields"]
+margin_right = 58.0
+margin_bottom = 24.0
+
+[connection signal="pressed" from="Actions/Create" to="." method="_on_Create_pressed"]
+[connection signal="pressed" from="Actions/Back" to="." method="_on_Back_pressed"]
+[connection signal="confirmed" from="CreatePopup" to="." method="_on_CreatePopup_confirmed"]
