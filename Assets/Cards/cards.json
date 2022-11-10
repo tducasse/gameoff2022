@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "charge",
+    "type": "attack",
+    "image": "charge.png",
+    "cost": 0,
+    "self": {
+      "damage": 1,
+      "armor": 0
+    },
+    "other": {
+      "damage": 4,
+      "armor": 0
+    }
+  },
+  {
+    "id": 2,
+    "name": "punch",
+    "type": "attack",
+    "image": "punch.png",
+    "cost": 2,
+    "self": {
+      "damage": 0,
+      "armor": 0
+    },
+    "other": {
+      "damage": 3,
+      "armor": 0
+    }
+  },
+  {
+    "id": 3,
+    "name": "barricade",
+    "type": "skill",
+    "image": "barricade.png",
+    "cost": 1,
+    "self": {
+      "damage": 0,
+      "armor": 0
+    },
+    "other": {
+      "damage": 4,
+      "armor": 0
+    }
+  }
+]
