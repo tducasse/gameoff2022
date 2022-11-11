@@ -30,6 +30,10 @@ config/name="gameoff2022"
 run/main_scene="res://Menu/Menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+gm="*res://Common/GameManager.gd"
+
 [display]
 
 window/stretch/mode="2d"
