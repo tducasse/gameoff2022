@@ -1,6 +1,5 @@
-[
-  {
-    "id": 1,
+{
+  "charge": {
     "name": "charge",
     "type": "attack",
     "image": "charge.png",
@@ -14,8 +13,7 @@
       "armor": 0
     }
   },
-  {
-    "id": 2,
+  "punch": {
     "name": "punch",
     "type": "attack",
     "image": "punch.png",
@@ -29,8 +27,7 @@
       "armor": 0
     }
   },
-  {
-    "id": 3,
+  "barricade": {
     "name": "barricade",
     "type": "skill",
     "image": "barricade.png",
@@ -44,4 +41,4 @@
       "armor": 0
     }
   }
-]
+}

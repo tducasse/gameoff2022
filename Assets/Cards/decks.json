@@ -1,0 +1,19 @@
+{
+  "default": {
+    "name": "default",
+    "cards": [
+      {
+        "id": "charge",
+        "number": 2
+      },
+      {
+        "id": "barricade",
+        "number": 2
+      },
+      {
+        "id": "punch",
+        "number": 2
+      }
+    ]
+  }
+}

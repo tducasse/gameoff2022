@@ -1,3 +1,50 @@
-[
-
-]
+{
+  "troll": {
+    "name": "troll",
+    "style": "random",
+    "actions": [
+      {
+        "id": "punch",
+        "weight": 1
+      },
+      {
+        "id": "kick",
+        "weight": 1
+      },
+      {
+        "id": "barricade",
+        "weight": 1
+      }
+    ],
+    "levels": [
+      1,
+      2
+    ]
+  },
+  "turtle": {
+    "name": "turtle",
+    "style": "random",
+    "actions": [
+      {
+        "id": "punch",
+        "weight": 1
+      },
+      {
+        "id": "barricade",
+        "weight": 3
+      }
+    ],
+    "levels": [
+      1
+    ]
+  },
+  "boss": {
+    "name": "the big boss",
+    "style": "sequence",
+    "actions": [
+      "barricade",
+      "barricade",
+      "explosion"
+    ]
+  }
+}

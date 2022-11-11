@@ -1,0 +1,15 @@
+[
+  {
+    "type": "fight",
+    "monster": [
+      "troll",
+      "turtle"
+    ]
+  },
+  {
+    "type": "fight",
+    "monster": [
+      "troll"
+    ]
+  }
+]

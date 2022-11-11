@@ -7,7 +7,9 @@ signal turn_changed(turn)
 
 var cards_per_turn = 4
 
-var cards = []
+var cards = {}
+var decks = {}
+var deck = []
 
 enum PLAYER {
 	SELF,
@@ -30,7 +32,13 @@ func is_player_turn():
 
 
 func _ready():
-	var cards_json = json.load_json_file("res://Assets/Cards/cards.json")
-	if cards_json:
-		cards = cards_json
+	cards = json.load_json_file("res://Assets/Cards/cards.json")
+	decks = json.load_json_file("res://Assets/Cards/decks.json")
+	make_deck(decks, cards, "default")
 
+
+func make_deck(all_decks, all_cards, deck_name):
+	var deck_obj = all_decks.get(deck_name)
+	for card in deck_obj.cards:
+		for _i in range(card.number):
+			deck.append(all_cards.get(card.id))

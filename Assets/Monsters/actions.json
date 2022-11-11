@@ -1,0 +1,26 @@
+{
+  "punch": {
+    "name": "punch",
+    "other": {
+      "damage": 2
+    }
+  },
+  "kick": {
+    "name": "kick",
+    "other": {
+      "damage": 3
+    }
+  },
+  "barricade": {
+    "name": "barricade",
+    "self": {
+      "armor": 2
+    }
+  },
+  "explosion": {
+    "name": "explosion",
+    "other": {
+      "damage": 10
+    }
+  }
+}

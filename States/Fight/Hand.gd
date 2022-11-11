@@ -38,9 +38,9 @@ func draw(number):
 
 
 func pick_random_card():
-	if len(gm.cards) < 1:
+	if len(gm.deck) < 1:
 		return
-	var card = gm.cards[randi() % gm.cards.size()]
+	var card = gm.deck[randi() % gm.deck.size()]
 	var copyCard = card.duplicate()
 	return copyCard
 
