@@ -1,7 +1,7 @@
 extends MarginContainer
 
 
-onready var Map = preload("res://Game/Dungeon/Map.tscn")
+onready var Map = preload("res://States/Map/Map.tscn")
 
 
 func _ready():

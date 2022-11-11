@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Common/Card/Card.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Images/barricade.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Cards/Images/barricade.png" type="Texture" id=2]
 
 [node name="Card" type="MarginContainer"]
 margin_right = 100.0

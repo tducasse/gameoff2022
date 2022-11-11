@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "MarginContainer",
 "class": "Hand",
 "language": "GDScript",
-"path": "res://Game/Fight/Hand.gd"
+"path": "res://States/Fight/Hand.gd"
 } ]
 _global_script_class_icons={
 "Card": "",
@@ -27,12 +27,12 @@ _global_script_class_icons={
 [application]
 
 config/name="gameoff2022"
-run/main_scene="res://Menu/Menu.tscn"
+run/main_scene="res://States/Menu/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-gm="*res://Common/GameManager.gd"
+gm="*res://Autoload/GameManager.gd"
 
 [display]
 

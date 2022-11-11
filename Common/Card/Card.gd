@@ -14,7 +14,7 @@ func init(params):
 	card = params
 	Name.text = str(params.name)
 	Cost.text = str(params.cost)
-	Picture.texture = load("res://Assets/Images/" + str(params.image))
+	Picture.texture = load("res://Assets/Cards/Images/" + str(params.image))
 	var scale = PictureContainer.get_rect().size.x / Picture.texture.get_size().x
 	Picture.scale.x = scale
 	Picture.scale.y = scale

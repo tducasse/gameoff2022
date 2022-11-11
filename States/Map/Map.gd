@@ -1,7 +1,7 @@
 extends MarginContainer
 
 
-onready var Fight = preload("res://Game/Fight/Level.tscn")
+onready var Fight = preload("res://States/Fight/Fight.tscn")
 
 
 func _on_Fight_pressed():

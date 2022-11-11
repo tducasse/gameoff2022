@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/barricade.png-1668cee4a1d7d856161185a45e7a7f0c.stex"
+path="res://.import/barricade.png-2b677828d217f352ff3cc16842a18d10.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/barricade.png"
-dest_files=[ "res://.import/barricade.png-1668cee4a1d7d856161185a45e7a7f0c.stex" ]
+source_file="res://Assets/Cards/Images/barricade.png"
+dest_files=[ "res://.import/barricade.png-2b677828d217f352ff3cc16842a18d10.stex" ]
 
 [params]
 

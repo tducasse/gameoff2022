@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Game/Fight/Hand.gd" type="Script" id=1]
+[ext_resource path="res://States/Fight/Hand.gd" type="Script" id=1]
 
 [node name="Hand" type="MarginContainer"]
 margin_left = 77.0
