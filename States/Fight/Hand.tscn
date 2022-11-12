@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://States/Fight/Hand.gd" type="Script" id=1]
+[ext_resource path="res://States/Fight/Slot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://States/Fight/Slots.gd" type="Script" id=3]
 
 [node name="Hand" type="MarginContainer"]
 margin_left = 77.0
@@ -13,51 +15,60 @@ script = ExtResource( 1 )
 margin_right = 843.0
 margin_bottom = 160.0
 alignment = 1
+script = ExtResource( 3 )
 
-[node name="MarginContainer" type="MarginContainer" parent="Slots"]
+[node name="Slot" parent="Slots" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 7.0
 margin_right = 107.0
 margin_bottom = 160.0
-rect_min_size = Vector2( 100, 160 )
 
-[node name="MarginContainer2" type="MarginContainer" parent="Slots"]
+[node name="Slot3" parent="Slots" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 111.0
 margin_right = 211.0
 margin_bottom = 160.0
-rect_min_size = Vector2( 100, 160 )
 
-[node name="MarginContainer3" type="MarginContainer" parent="Slots"]
+[node name="Slot2" parent="Slots" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 215.0
 margin_right = 315.0
 margin_bottom = 160.0
-rect_min_size = Vector2( 100, 160 )
 
-[node name="MarginContainer4" type="MarginContainer" parent="Slots"]
+[node name="Slot4" parent="Slots" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 319.0
 margin_right = 419.0
 margin_bottom = 160.0
-rect_min_size = Vector2( 100, 160 )
 
-[node name="MarginContainer5" type="MarginContainer" parent="Slots"]
+[node name="Slot5" parent="Slots" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 423.0
 margin_right = 523.0
 margin_bottom = 160.0
-rect_min_size = Vector2( 100, 160 )
 
-[node name="MarginContainer6" type="MarginContainer" parent="Slots"]
+[node name="Slot6" parent="Slots" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 527.0
 margin_right = 627.0
 margin_bottom = 160.0
-rect_min_size = Vector2( 100, 160 )
 
-[node name="MarginContainer7" type="MarginContainer" parent="Slots"]
+[node name="Slot7" parent="Slots" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 631.0
 margin_right = 731.0
 margin_bottom = 160.0
-rect_min_size = Vector2( 100, 160 )
 
-[node name="MarginContainer8" type="MarginContainer" parent="Slots"]
+[node name="Slot8" parent="Slots" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 735.0
 margin_right = 835.0
 margin_bottom = 160.0
-rect_min_size = Vector2( 100, 160 )

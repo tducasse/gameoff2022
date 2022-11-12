@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-onready var Hand: Hand = $Hand
+onready var Hand = $Hand
 onready var EndTurn = $Right/CenterContainer/EndTurn
 onready var StartTurn = $Left/CenterContainer/StartTurn
 
@@ -18,8 +18,7 @@ func show_actions():
 		StartTurn.show()
 
 
-func _handle_next_turn(turn):
-	print(turn)
+func _handle_next_turn(_turn):
 	show_actions()
 	
 

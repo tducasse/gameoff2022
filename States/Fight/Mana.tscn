@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://States/Fight/Mana.gd" type="Script" id=1]
+
+[node name="Mana" type="Label"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1024.0
+margin_bottom = 24.0
+text = "2"
+script = ExtResource( 1 )
