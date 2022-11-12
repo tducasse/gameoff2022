@@ -1,0 +1,21 @@
+{
+  "3-1": {
+    "type": "monster",
+    "value": [
+      "troll",
+      "turtle"
+    ]
+  },
+  "2-2": {
+    "type": "monster",
+    "value": [
+      "turtle"
+    ]
+  },
+  "3-3": {
+    "type": "monster",
+    "value": [
+      "troll"
+    ]
+  }
+}

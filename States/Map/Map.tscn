@@ -11,11 +11,11 @@ script = ExtResource( 1 )
 margin_right = 1024.0
 margin_bottom = 600.0
 
-[node name="Path1" type="Position2D" parent="CenterContainer"]
-position = Vector2( 200, 300 )
-
-[node name="Path2" type="Position2D" parent="CenterContainer"]
-position = Vector2( 350, 220 )
-
-[node name="Path3" type="Position2D" parent="CenterContainer"]
-position = Vector2( 350, 380 )
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+margin_left = 512.0
+margin_top = 300.0
+margin_right = 512.0
+margin_bottom = 300.0
+custom_constants/vseparation = 50
+custom_constants/hseparation = 50
+columns = 9

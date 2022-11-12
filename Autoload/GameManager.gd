@@ -18,6 +18,7 @@ var current_mana = 0
 var cards = {}
 var decks = {}
 var deck = []
+var map = []
 
 enum PLAYER {
 	SELF,
@@ -42,6 +43,7 @@ func is_player_turn():
 func _ready():
 	cards = json.load_json_file("res://Assets/Cards/cards.json")
 	decks = json.load_json_file("res://Assets/Cards/decks.json")
+	make_map()
 	make_deck(decks, cards, "default")
 	update_mana(starting_mana)
 
@@ -51,6 +53,18 @@ func make_deck(all_decks, all_cards, deck_name):
 	for card in deck_obj.cards:
 		for _i in range(card.number):
 			deck.append(all_cards.get(card.id))
+
+
+func make_map():
+	var nodes = json.load_json_file("res://Assets/Map/nodes.json")
+	var layout = json.load_json_file("res://Assets/Map/map.json")
+	for i in range(len(layout)):
+		for j in range(len(layout[i])):
+			if layout[i][j] == 1:
+				var index = str(i + 1) + "-" + str(j + 1)
+				map.append(nodes.get(index))
+			else:
+				map.append(null)
 
 
 func has_mana_left():
