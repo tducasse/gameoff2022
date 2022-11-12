@@ -6,6 +6,7 @@ const json = preload("res://Utils/json.gd")
 signal turn_changed(turn)
 
 var cards_per_turn = 4
+var starting_mana = 3
 
 var cards = {}
 var decks = {}
