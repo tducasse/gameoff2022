@@ -63,9 +63,10 @@ margin_right = 88.0
 margin_bottom = 67.0
 text = "barricade"
 
-[node name="Clickable" type="MarginContainer" parent="."]
+[node name="Overlay" type="ColorRect" parent="."]
 margin_right = 100.0
 margin_bottom = 160.0
+color = Color( 0, 0, 0, 0 )
 
 [connection signal="gui_input" from="." to="." method="_on_Card_gui_input"]
-[connection signal="gui_input" from="Clickable" to="." method="_on_Clickable_gui_input"]
+[connection signal="gui_input" from="Overlay" to="." method="_on_Overlay_gui_input"]

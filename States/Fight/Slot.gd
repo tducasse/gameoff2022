@@ -23,9 +23,13 @@ func remove_card():
 
 
 func play_card():
+	gm.spend_mana(card.params.cost)
+	gm.emit_signal("card_played", card.params)
 	remove_card()
 
 
 func _on_card_clicked():
-	play_card()
-
+	if gm.has_enough_mana(card.params.cost):
+		play_card()
+	else:
+		print("not enough mana")

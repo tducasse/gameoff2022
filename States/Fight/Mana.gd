@@ -1,5 +1,11 @@
 extends Label
 
 
+
 func _ready():
-	self.text = str(gm.starting_mana)
+	update_mana()
+	var _signal = gm.connect("mana_changed", self, "update_mana")
+
+
+func update_mana():
+	self.text = "Mana: " + str(gm.current_mana)
