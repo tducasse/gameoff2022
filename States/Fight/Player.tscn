@@ -9,21 +9,8 @@ margin_right = 1024.0
 margin_bottom = 600.0
 script = ExtResource( 2 )
 
-[node name="Left" type="MarginContainer" parent="."]
-margin_right = 73.0
-margin_bottom = 160.0
-
-[node name="CenterContainer" type="CenterContainer" parent="Left"]
-margin_right = 73.0
-margin_bottom = 160.0
-
-[node name="StartTurn" type="Button" parent="Left/CenterContainer"]
-margin_top = 70.0
-margin_right = 73.0
-margin_bottom = 90.0
-text = "Start Turn"
-
 [node name="Hand" parent="." instance=ExtResource( 1 )]
+margin_left = 0.0
 
 [node name="Right" type="MarginContainer" parent="."]
 margin_left = 924.0
@@ -42,5 +29,4 @@ margin_right = 83.0
 margin_bottom = 90.0
 text = "End Turn"
 
-[connection signal="pressed" from="Left/CenterContainer/StartTurn" to="." method="_on_StartTurn_pressed"]
 [connection signal="pressed" from="Right/CenterContainer/EndTurn" to="." method="_on_EndTurn_pressed"]

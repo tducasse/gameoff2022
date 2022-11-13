@@ -20,6 +20,7 @@ var decks = {}
 var deck = []
 var map = []
 var monsters = {}
+var actions = {}
 
 enum PLAYER {
 	SELF,
@@ -34,7 +35,7 @@ func end_turn():
 	else:
 		current_turn = PLAYER.SELF
 		update_mana(starting_mana)
-	gm.emit_signal("turn_changed", current_turn)
+	emit_signal("turn_changed", current_turn)
 
 
 func is_player_turn():
@@ -45,6 +46,7 @@ func _ready():
 	cards = json.load_json_file("res://Assets/Cards/cards.json")
 	decks = json.load_json_file("res://Assets/Cards/decks.json")
 	monsters = json.load_json_file("res://Assets/Monsters/monsters.json")
+	actions = json.load_json_file("res://Assets/Monsters/actions.json")
 	make_map()
 	make_deck(decks, cards, "default")
 	update_mana(starting_mana)
@@ -85,3 +87,8 @@ func update_mana(value):
 func spend_mana(cost):
 	if has_enough_mana(cost):
 		update_mana(current_mana - cost)
+
+
+func start_fight():
+	current_turn = PLAYER.SELF
+	emit_signal("turn_changed", current_turn)

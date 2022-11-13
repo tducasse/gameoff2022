@@ -9,6 +9,7 @@ var enemy = null
 func init(params):
 	enemy = pick_random_monster(params.value)
 	Enemy.init(enemy)
+	gm.start_fight()
 
 
 func pick_random_monster(options):

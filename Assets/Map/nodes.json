@@ -17,5 +17,9 @@
     "value": [
       "troll"
     ]
+  },
+  "3-4": {
+    "type": "monster",
+    "value": ["boss"]
   }
 }
