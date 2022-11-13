@@ -3,6 +3,8 @@ extends MarginContainer
 
 onready var Name = $VBoxContainer/Name
 onready var NextAction = $VBoxContainer/NextAction
+onready var HP = $VBoxContainer/HP
+onready var Armor = $VBoxContainer/Armor
 
 var monster = {}
 
@@ -10,13 +12,25 @@ var next_action = null
 var nb_turn = 1
 
 func _ready():
-	var _signal = gm.connect("turn_changed", self, "_on_turn_changed")
+	var _s1 = gm.connect("turn_changed", self, "_on_turn_changed")
+	var _s2 = gm.connect("damage_monster", self, "take_damage")
 
 
 func init(params):
 	monster = params
 	Name.text = monster.name
+	monster.armor = 0
+	update_hp()
+	update_armor()
 
+
+func update_hp():
+	HP.text = "HP: " + str(monster.hp)
+	
+
+func update_armor():
+	Armor.text = "Armor: " + str(monster.armor)
+	
 
 func _on_turn_changed(_turn):
 	if not gm.is_player_turn():
@@ -37,12 +51,25 @@ func advertise_action():
 func do_action():
 	if not next_action:
 		return
-	print("Monster is using: " + next_action.name)
+	var armor = next_action.get("self", {}).get("armor")
+	var self_dmg = next_action.get("self", {}).get("damage")
+	var dmg = next_action.get("other", {}).get("damage")
+	if dmg:
+		gm.emit_signal("damage_player", dmg)
+	if self_dmg:
+		take_damage(self_dmg)
+	if armor:
+		add_armor(armor)
 	next_action = null
 
 
 func end_turn():
 	gm.end_turn()
+	
+	
+func add_armor(armor):
+	monster.armor = monster.armor + armor
+	update_armor()
 	
 
 func plan_action():
@@ -66,3 +93,13 @@ func plan_random_action():
 	var action = actions[randi() % actions.size()]
 	next_action =  gm.actions.get(action).duplicate()
 
+
+
+
+func take_damage(dmg):
+	var remaining_damage = clamp(dmg - monster.armor, 0, dmg)
+	var remaining_armor = clamp(monster.armor - dmg, 0, monster.armor)
+	monster.armor = remaining_armor
+	monster.hp = clamp(monster.hp - remaining_damage, 0, monster.hp)
+	update_armor()
+	update_hp()

@@ -12,16 +12,30 @@ margin_right = 1024.0
 margin_bottom = 600.0
 alignment = 1
 
-[node name="Name" type="Label" parent="VBoxContainer"]
+[node name="HP" type="Label" parent="VBoxContainer"]
+margin_top = 266.0
+margin_right = 1024.0
+margin_bottom = 280.0
+text = "HP: 20"
+align = 1
+
+[node name="Armor" type="Label" parent="VBoxContainer"]
 margin_top = 284.0
 margin_right = 1024.0
 margin_bottom = 298.0
+text = "Armor: 0"
+align = 1
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+margin_top = 302.0
+margin_right = 1024.0
+margin_bottom = 316.0
 text = "Monster"
 align = 1
 
 [node name="NextAction" type="Label" parent="VBoxContainer"]
-margin_top = 302.0
+margin_top = 320.0
 margin_right = 1024.0
-margin_bottom = 316.0
+margin_bottom = 334.0
 text = "Next Action: punch"
 align = 1

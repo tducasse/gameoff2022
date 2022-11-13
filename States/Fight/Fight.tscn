@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://States/Fight/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://States/Fight/Mana.tscn" type="PackedScene" id=2]
 [ext_resource path="res://States/Fight/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://States/Fight/Fight.gd" type="Script" id=4]
+[ext_resource path="res://States/Fight/HP.tscn" type="PackedScene" id=5]
+[ext_resource path="res://States/Fight/Armor.tscn" type="PackedScene" id=6]
 
 [node name="Fight" type="MarginContainer"]
 anchor_right = 1.0
@@ -20,7 +22,23 @@ margin_bottom = 24.0
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 
-[node name="Mana" parent="VBoxContainer/MarginContainer" instance=ExtResource( 2 )]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1024.0
+margin_bottom = 24.0
+custom_constants/separation = 20
+
+[node name="Mana" parent="VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 50.0
+margin_bottom = 14.0
+text = "Mana: 2"
+
+[node name="HP" parent="VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource( 5 )]
+
+[node name="Armor" parent="VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource( 6 )]
 
 [node name="Field" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 28.0

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://States/Fight/Armor.gd" type="Script" id=1]
+
+[node name="Armor" type="Label"]
+margin_left = 140.0
+margin_right = 196.0
+margin_bottom = 14.0
+text = "Armor: 0"
+script = ExtResource( 1 )

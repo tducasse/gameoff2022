@@ -1,5 +1,6 @@
 {
   "troll": {
+    "hp": 10,
     "name": "troll",
     "style": "random",
     "actions": [
@@ -20,6 +21,7 @@
   "turtle": {
     "name": "turtle",
     "style": "random",
+    "hp": 10,
     "actions": [
       {
         "id": "punch",
@@ -32,6 +34,7 @@
     ]
   },
   "boss": {
+    "hp": 50,
     "name": "the big boss",
     "style": "sequence",
     "actions": [
