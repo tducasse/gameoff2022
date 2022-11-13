@@ -1,7 +1,8 @@
 extends MarginContainer
 
 
-onready var Name = $Name
+onready var Name = $VBoxContainer/Name
+onready var NextAction = $VBoxContainer/NextAction
 
 var monster = {}
 
@@ -26,7 +27,12 @@ func _on_turn_changed(_turn):
 		nb_turn = nb_turn + 1
 	else:
 		plan_action()
+		advertise_action()
 
+
+func advertise_action():
+	NextAction.text = "Next action: " + next_action.name
+	
 
 func do_action():
 	if not next_action:
