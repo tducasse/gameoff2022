@@ -19,6 +19,7 @@ var cards = {}
 var decks = {}
 var deck = []
 var map = []
+var monsters = {}
 
 enum PLAYER {
 	SELF,
@@ -43,6 +44,7 @@ func is_player_turn():
 func _ready():
 	cards = json.load_json_file("res://Assets/Cards/cards.json")
 	decks = json.load_json_file("res://Assets/Cards/decks.json")
+	monsters = json.load_json_file("res://Assets/Monsters/monsters.json")
 	make_map()
 	make_deck(decks, cards, "default")
 	update_mana(starting_mana)

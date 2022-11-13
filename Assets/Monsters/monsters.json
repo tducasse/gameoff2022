@@ -15,10 +15,6 @@
         "id": "barricade",
         "weight": 1
       }
-    ],
-    "levels": [
-      1,
-      2
     ]
   },
   "turtle": {
@@ -33,9 +29,6 @@
         "id": "barricade",
         "weight": 3
       }
-    ],
-    "levels": [
-      1
     ]
   },
   "boss": {

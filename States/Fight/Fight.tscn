@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://States/Fight/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://States/Fight/Mana.tscn" type="PackedScene" id=2]
+[ext_resource path="res://States/Fight/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://States/Fight/Fight.gd" type="Script" id=4]
 
 [node name="Fight" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 1024.0
@@ -19,28 +22,26 @@ custom_constants/margin_left = 10
 
 [node name="Mana" parent="VBoxContainer/MarginContainer" instance=ExtResource( 2 )]
 
-[node name="Field" type="HSplitContainer" parent="VBoxContainer"]
+[node name="Field" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 28.0
 margin_right = 1024.0
 margin_bottom = 436.0
 size_flags_vertical = 3
-dragger_visibility = 1
 
 [node name="Hero" type="Label" parent="VBoxContainer/Field"]
 margin_top = 197.0
-margin_right = 506.0
+margin_right = 510.0
 margin_bottom = 211.0
 size_flags_horizontal = 3
 text = "Hero"
 align = 1
 
-[node name="Monster" type="Label" parent="VBoxContainer/Field"]
-margin_left = 518.0
-margin_top = 197.0
+[node name="Enemy" parent="VBoxContainer/Field" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 514.0
 margin_right = 1024.0
-margin_bottom = 211.0
+margin_bottom = 408.0
 size_flags_horizontal = 3
-text = "Monster"
-align = 1
 
 [node name="Player" parent="VBoxContainer" instance=ExtResource( 1 )]
