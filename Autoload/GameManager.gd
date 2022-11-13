@@ -1,6 +1,7 @@
 extends Node
 
 const json = preload("res://Utils/json.gd")
+onready var Map = preload("res://States/Map/Map.tscn")
 
 # warning-ignore:unused_signal
 signal turn_changed(turn)
@@ -18,6 +19,9 @@ signal armor_player(val)
 signal damage_player(val)
 # warning-ignore:unused_signal
 signal damage_monster(val)
+# warning-ignore:unused_signal
+signal monster_dead(val)
+
 
 var cards_per_turn = 4
 var starting_mana = 3
@@ -32,6 +36,8 @@ var actions = {}
 var starting_hp = 100
 var current_hp = starting_hp
 var current_armor = 0
+var completed = []
+var current_level_index = 0
 
 enum PLAYER {
 	SELF,
@@ -63,6 +69,7 @@ func _ready():
 	update_mana(starting_mana)
 	var _s1 = connect("card_played", self, "_on_card_played")
 	var _s2 = connect("damage_player", self, "take_damage")
+	var _s3 = connect("monster_dead", self, "_on_monster_dead")
 
 
 func make_deck(all_decks, all_cards, deck_name):
@@ -104,6 +111,8 @@ func spend_mana(cost):
 
 func start_fight():
 	current_turn = PLAYER.SELF
+	current_mana = starting_mana
+	emit_signal("mana_changed")
 	emit_signal("turn_changed", current_turn)
 
 
@@ -150,3 +159,15 @@ func _on_card_played(card):
 		return play_attack_card(card)
 	if card.type == "skill":
 		return play_skill_card(card)
+
+
+
+func _on_monster_dead():
+	completed.append(current_level_index)
+	var map_instance = Map.instance()
+	var root_node = get_tree().get_root()
+	var main_node = get_node("/root/Fight")
+	root_node.remove_child(main_node)
+	main_node.call_deferred("free")
+	root_node.add_child(map_instance)
+	map_instance.init()

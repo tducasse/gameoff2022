@@ -101,5 +101,7 @@ func take_damage(dmg):
 	var remaining_armor = clamp(monster.armor - dmg, 0, monster.armor)
 	monster.armor = remaining_armor
 	monster.hp = clamp(monster.hp - remaining_damage, 0, monster.hp)
+	if monster.hp == 0:
+		gm.emit_signal("monster_dead")
 	update_armor()
 	update_hp()
