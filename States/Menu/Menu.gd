@@ -15,3 +15,4 @@ func _on_Start_pressed():
 	root_node.remove_child(main_node)
 	main_node.call_deferred("free")
 	root_node.add_child(map_instance)
+	gm.start_game()

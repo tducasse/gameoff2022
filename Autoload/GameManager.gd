@@ -2,6 +2,7 @@ extends Node
 
 const json = preload("res://Utils/json.gd")
 onready var Map = preload("res://States/Map/Map.tscn")
+onready var Menu = preload("res://States/Menu/Menu.tscn")
 
 # warning-ignore:unused_signal
 signal turn_changed(turn)
@@ -25,7 +26,8 @@ signal monster_dead(val)
 
 var cards_per_turn = 4
 var starting_mana = 3
-var current_mana = 0
+var starting_hp = 10
+var starting_armor = 0
 
 var cards = {}
 var decks = {}
@@ -33,9 +35,10 @@ var deck = []
 var map = []
 var monsters = {}
 var actions = {}
-var starting_hp = 100
-var current_hp = starting_hp
+
+var current_hp = 0
 var current_armor = 0
+var current_mana = 0
 var completed = []
 var current_level_index = 0
 
@@ -109,9 +112,16 @@ func spend_mana(cost):
 		update_mana(current_mana - cost)
 
 
+func start_game():
+	current_hp = starting_hp
+	gm.completed= []
+	emit_signal("hp_changed")
+
+
 func start_fight():
 	current_turn = PLAYER.SELF
 	current_mana = starting_mana
+	current_armor = starting_armor
 	emit_signal("mana_changed")
 	emit_signal("turn_changed", current_turn)
 
@@ -150,6 +160,8 @@ func take_damage(dmg):
 	var remaining_armor = clamp(current_armor - dmg, 0, current_armor)
 	current_armor = remaining_armor
 	current_hp = clamp(current_hp - remaining_damage, 0, current_hp)
+	if current_hp == 0:
+		return player_dead()
 	emit_signal("hp_changed")
 	emit_signal("armor_changed")
 
@@ -160,6 +172,14 @@ func _on_card_played(card):
 	if card.type == "skill":
 		return play_skill_card(card)
 
+
+func player_dead():
+	var menu_instance = Menu.instance()
+	var root_node = get_tree().get_root()
+	var main_node = get_node("/root/Fight")
+	root_node.remove_child(main_node)
+	main_node.call_deferred("free")
+	root_node.add_child(menu_instance)
 
 
 func _on_monster_dead():

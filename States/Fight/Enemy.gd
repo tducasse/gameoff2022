@@ -35,6 +35,8 @@ func update_armor():
 func _on_turn_changed(_turn):
 	if not gm.is_player_turn():
 		do_action()
+		if gm.current_hp == 0:
+			return
 		# TODO: replace with an animation
 		yield(get_tree().create_timer(1), "timeout")
 		end_turn()
