@@ -40,7 +40,8 @@ var edges = []
 var current_hp = 0
 var current_armor = 0
 var current_mana = 0
-var completed = []
+var completed = {"indexes": [], "names": []}
+var current_level_key = ""
 var current_level_index = 0
 
 enum PLAYER {
@@ -119,7 +120,8 @@ func spend_mana(cost):
 
 func start_game():
 	current_hp = starting_hp
-	gm.completed= []
+	gm.completed.indexes = []
+	gm.completed.names = []
 	emit_signal("hp_changed")
 
 
@@ -188,7 +190,8 @@ func player_dead():
 
 
 func _on_monster_dead():
-	completed.append(current_level_index)
+	completed.indexes.append(current_level_index)
+	completed.names.append(current_level_key)
 	var map_instance = Map.instance()
 	var root_node = get_tree().get_root()
 	var main_node = get_node("/root/Fight")

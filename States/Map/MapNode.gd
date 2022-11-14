@@ -1,24 +1,32 @@
-extends MarginContainer
+extends CenterContainer
 
 signal node_clicked(node_params)
 onready var Monster = preload("res://States/Map/Monster.tscn")
 onready var Overlay = $Overlay
+onready var Available = $Available
+onready var Unavailable = $Unavailable
+onready var ImageContainer = $ImageContainer
 
 var params = {}
 var node = null
+var active = false
 
 
 func _ready():
 	Overlay.hide()
+	Available.hide()
+	Unavailable.hide()
 
 
 func init(config):
 	params = config
 	if params.type == "monster":
 		node = Monster.instance()
-		var _signal = node.connect("clicked", self, "_on_node_clicked")
-	if node:
-		add_child(node)
+	if params.get("starter"):
+		mark_as_available()
+	else:
+		mark_as_unavailable()
+	ImageContainer.add_child(node)
 
 
 func _on_node_clicked():
@@ -26,5 +34,16 @@ func _on_node_clicked():
 	
 
 func mark_as_complete():
-	remove_child(node)
+	Unavailable.show()
+	Available.hide()
 	Overlay.show()
+
+
+func mark_as_available():
+	var _signal = node.connect("clicked", self, "_on_node_clicked")
+	Available.show()
+	Unavailable.hide()
+	active = true
+	
+func mark_as_unavailable():
+	Unavailable.show()

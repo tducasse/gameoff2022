@@ -1,5 +1,6 @@
 {
   "a": {
+    "starter": true,
     "type": "monster",
     "value": [
       "troll",
@@ -21,5 +22,11 @@
   "d": {
     "type": "monster",
     "value": ["boss"]
+  },
+  "e": {
+    "type": "monster",
+    "value": [
+      "troll"
+    ]
   }
 }
