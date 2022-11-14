@@ -35,6 +35,7 @@ var deck = []
 var map = []
 var monsters = {}
 var actions = {}
+var edges = []
 
 var current_hp = 0
 var current_armor = 0
@@ -84,12 +85,16 @@ func make_deck(all_decks, all_cards, deck_name):
 
 func make_map():
 	var nodes = json.load_json_file("res://Assets/Map/nodes.json")
-	var layout = json.load_json_file("res://Assets/Map/map.json")
+	var map_json = json.load_json_file("res://Assets/Map/map.json")
+	var layout = map_json.map
+	edges = map_json.edges
 	for i in range(len(layout)):
 		for j in range(len(layout[i])):
-			if layout[i][j] == 1:
-				var index = str(i + 1) + "-" + str(j + 1)
-				map.append(nodes.get(index))
+			var val = layout[i][j]
+			if val != '-':
+				var node = nodes.get(val)
+				node.name = val
+				map.append(node)
 			else:
 				map.append(null)
 
