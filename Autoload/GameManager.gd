@@ -21,7 +21,7 @@ signal damage_player(val)
 # warning-ignore:unused_signal
 signal damage_monster(val)
 # warning-ignore:unused_signal
-signal monster_dead(val)
+signal monster_dead(last)
 #warning-ignore:unused_signal
 signal draw_card(name)
 #warning-ignore:unused_signal
@@ -30,7 +30,7 @@ signal card_count_updated()
 
 var cards_per_turn = 4
 var starting_mana = 3
-var starting_hp = 10
+var starting_hp = 100
 var starting_armor = 0
 
 var cards = {}
@@ -244,11 +244,21 @@ func player_dead():
 	root_node.remove_child(main_node)
 	main_node.call_deferred("free")
 	root_node.add_child(menu_instance)
+	print("lost")
 
 
-func _on_monster_dead():
+func _on_monster_dead(last):
 	completed.indexes.append(current_level_index)
 	completed.names.append(current_level_key)
+	if last:
+		var menu_instance = Menu.instance()
+		var root_node = get_tree().get_root()
+		var main_node = get_node("/root/Fight")
+		root_node.remove_child(main_node)
+		main_node.call_deferred("free")
+		root_node.add_child(menu_instance)
+		print("won")
+		return
 	var map_instance = Map.instance()
 	var root_node = get_tree().get_root()
 	var main_node = get_node("/root/Fight")

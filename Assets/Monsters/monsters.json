@@ -35,6 +35,7 @@
   },
   "boss": {
     "hp": 50,
+    "last": true,
     "name": "the big boss",
     "style": "sequence",
     "actions": [

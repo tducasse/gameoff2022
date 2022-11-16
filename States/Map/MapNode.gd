@@ -12,6 +12,7 @@ var params = {}
 var node = null
 var active = false
 var complete = false
+var starter = false
 
 
 func _ready():
@@ -22,11 +23,12 @@ func _ready():
 
 func init(config):
 	params = config
+	starter = params.get("starter")
 	if params.type == "monster":
 		node = Monster.instance()
 	if params.type == "tavern":
 		node = Tavern.instance()
-	if params.get("starter"):
+	if starter:
 		mark_as_available()
 	else:
 		mark_as_unavailable()

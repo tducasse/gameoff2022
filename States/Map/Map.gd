@@ -60,10 +60,12 @@ func init():
 		var index = int(level)
 		children[index].mark_as_complete()
 	for edge in gm.edges:
-		if edge[0] in gm.completed.names:
+		if edge[0] == gm.current_level_key:
 			var current = children[nodes[edge[1]]]
-			if not current.complete:
-				current.mark_as_available()
+			current.mark_as_available()
+	for child in children:
+		if child.starter:
+			child.mark_as_unavailable()
 
 
 
