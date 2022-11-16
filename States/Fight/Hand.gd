@@ -23,14 +23,16 @@ func discard():
 
 
 func draw(number):
+	gm.reset_hand()
 	for _i in range(number):
 		add_card(pick_random_card())
 
 
 func pick_random_card():
-	if len(gm.deck) < 1:
-		return
-	var card = gm.deck[randi() % gm.deck.size()]
+	if len(gm.current_cards_left) < 1:
+		gm.shuffle()
+	var card = gm.current_cards_left[randi() % gm.current_cards_left.size()]
+	gm.remove_from_deck(card)
 	var copyCard = card.duplicate()
 	return copyCard
 

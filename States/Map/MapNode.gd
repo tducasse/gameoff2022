@@ -11,6 +11,7 @@ onready var ImageContainer = $ImageContainer
 var params = {}
 var node = null
 var active = false
+var complete = false
 
 
 func _ready():
@@ -37,6 +38,7 @@ func _on_node_clicked():
 
 
 func mark_as_complete():
+	complete = true
 	Unavailable.show()
 	Available.hide()
 	Overlay.show()

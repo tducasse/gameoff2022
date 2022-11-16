@@ -18,6 +18,7 @@ func put_card(card_params):
 
 func remove_card():
 	if card:
+		gm.discard(card.params)
 		card.queue_free()
 		card = null
 

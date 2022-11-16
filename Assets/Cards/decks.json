@@ -4,15 +4,15 @@
     "cards": [
       {
         "id": "charge",
-        "number": 2
+        "number": 10
       },
       {
         "id": "barricade",
-        "number": 2
+        "number": 1
       },
       {
         "id": "punch",
-        "number": 2
+        "number": 0
       }
     ]
   }

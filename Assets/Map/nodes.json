@@ -21,7 +21,9 @@
   },
   "d": {
     "type": "monster",
-    "value": ["boss"]
+    "value": [
+      "boss"
+    ]
   },
   "e": {
     "type": "monster",
@@ -31,6 +33,9 @@
   },
   "f": {
     "starter": true,
+    "type": "tavern"
+  },
+  "g": {
     "type": "tavern"
   }
 }

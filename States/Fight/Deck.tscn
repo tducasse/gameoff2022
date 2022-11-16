@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://States/Fight/Deck.gd" type="Script" id=1]
+
+[node name="Deck" type="Label"]
+margin_left = 216.0
+margin_right = 253.0
+margin_bottom = 14.0
+text = "20/20"
+script = ExtResource( 1 )

@@ -61,7 +61,9 @@ func init():
 		children[index].mark_as_complete()
 	for edge in gm.edges:
 		if edge[0] in gm.completed.names:
-			children[nodes[edge[1]]].mark_as_available()
+			var current = children[nodes[edge[1]]]
+			if not current.complete:
+				current.mark_as_available()
 
 
 

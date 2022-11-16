@@ -24,6 +24,8 @@ signal damage_monster(val)
 signal monster_dead(val)
 #warning-ignore:unused_signal
 signal draw_card(name)
+#warning-ignore:unused_signal
+signal card_count_updated()
 
 
 var cards_per_turn = 4
@@ -45,10 +47,13 @@ var hired_heroes = []
 var current_hp = 0
 var current_armor = 0
 var current_mana = 0
+var in_hand = []
 var completed = {"indexes": [], "names": []}
 var current_level_key = ""
 var current_level_index = 0
 var nb_player_turns = 1
+var current_cards_discarded = []
+var current_cards_left = []
 
 enum PLAYER {
 	SELF,
@@ -91,6 +96,15 @@ func make_deck(all_decks, all_cards, deck_name):
 	for card in deck_obj.cards:
 		for _i in range(card.number):
 			deck.append(all_cards.get(card.id))
+	current_cards_left = deck.duplicate()
+
+
+func shuffle():
+	current_cards_left = deck.duplicate()
+	for card in in_hand:
+		current_cards_left.remove(current_cards_left.find(card))
+	current_cards_discarded = []
+	emit_signal("card_count_updated")
 
 
 func make_map():
@@ -129,8 +143,8 @@ func spend_mana(cost):
 
 func start_game():
 	current_hp = starting_hp
-	gm.completed.indexes = []
-	gm.completed.names = []
+	completed.indexes = []
+	completed.names = []
 	emit_signal("hp_changed")
 
 
@@ -138,6 +152,8 @@ func start_fight():
 	current_turn = PLAYER.SELF
 	current_mana = starting_mana
 	current_armor = starting_armor
+	reset_hand()
+	shuffle()
 	nb_player_turns = 1
 	emit_signal("mana_changed")
 	emit_signal("turn_changed")
@@ -185,9 +201,40 @@ func take_damage(dmg):
 
 func _on_card_played(card):
 	if card.type == "attack":
-		return play_attack_card(card)
-	if card.type == "skill":
-		return play_skill_card(card)
+		play_attack_card(card)
+	elif card.type == "skill":
+		play_skill_card(card)
+
+
+func remove_from_deck(card):
+	var index = -1
+	for i in range(len(current_cards_left)):
+		var c = current_cards_left[i]
+		if c.name == card.name:
+			index = i
+			break
+	if index > -1:
+		current_cards_left.remove(index)
+		in_hand.append(card)
+		emit_signal("card_count_updated")
+
+
+func discard(card):
+	var index = -1
+	for i in range(len(in_hand)):
+		var c = in_hand[i]
+		if c.name == card.name:
+			index = i
+			break
+	if index > -1:
+		in_hand.remove(index)
+		current_cards_discarded.append(card)
+		emit_signal("card_count_updated")
+
+
+func reset_hand():
+	in_hand = []
+	emit_signal("card_count_updated")
 
 
 func player_dead():
