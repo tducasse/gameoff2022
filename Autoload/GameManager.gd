@@ -36,6 +36,9 @@ var map = []
 var monsters = {}
 var actions = {}
 var edges = []
+var heroes = {}
+
+var hired_heroes = []
 
 var current_hp = 0
 var current_armor = 0
@@ -69,6 +72,7 @@ func _ready():
 	decks = json.load_json_file("res://Assets/Cards/decks.json")
 	monsters = json.load_json_file("res://Assets/Monsters/monsters.json")
 	actions = json.load_json_file("res://Assets/Monsters/actions.json")
+	heroes = json.load_json_file("res://Assets/Heroes/heroes.json")
 	make_map()
 	make_deck(decks, cards, "default")
 	update_mana(starting_mana)
@@ -195,6 +199,22 @@ func _on_monster_dead():
 	var map_instance = Map.instance()
 	var root_node = get_tree().get_root()
 	var main_node = get_node("/root/Fight")
+	root_node.remove_child(main_node)
+	main_node.call_deferred("free")
+	root_node.add_child(map_instance)
+	map_instance.init()
+
+
+func select_hero(hero):
+	hired_heroes.append(hero)
+	
+	
+func _on_hero_selected():
+	completed.indexes.append(current_level_index)
+	completed.names.append(current_level_key)
+	var map_instance = Map.instance()
+	var root_node = get_tree().get_root()
+	var main_node = get_node("/root/Tavern")
 	root_node.remove_child(main_node)
 	main_node.call_deferred("free")
 	root_node.add_child(map_instance)

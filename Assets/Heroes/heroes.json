@@ -1,3 +1,22 @@
 [
-
+  {
+    "name": "mage",
+    "power": {
+      "type": "card",
+      "when": {
+        "frequency": 2
+      },
+      "value": "fireball"
+    }
+  },
+  {
+    "name": "dwarf",
+    "power": {
+      "type": "armor",
+      "value": 1,
+      "when": {
+        "frequency": 1
+      }
+    }
+  }
 ]

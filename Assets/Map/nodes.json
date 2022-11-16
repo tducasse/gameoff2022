@@ -28,5 +28,9 @@
     "value": [
       "troll"
     ]
+  },
+  "f": {
+    "starter": true,
+    "type": "tavern"
   }
 }

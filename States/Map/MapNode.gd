@@ -2,6 +2,7 @@ extends CenterContainer
 
 signal node_clicked(node_params)
 onready var Monster = preload("res://States/Map/Monster.tscn")
+onready var Tavern = preload("res://States/Map/Tavern.tscn")
 onready var Overlay = $Overlay
 onready var Available = $Available
 onready var Unavailable = $Unavailable
@@ -22,6 +23,8 @@ func init(config):
 	params = config
 	if params.type == "monster":
 		node = Monster.instance()
+	if params.type == "tavern":
+		node = Tavern.instance()
 	if params.get("starter"):
 		mark_as_available()
 	else:
@@ -40,7 +43,8 @@ func mark_as_complete():
 
 
 func mark_as_available():
-	var _signal = node.connect("clicked", self, "_on_node_clicked")
+	if not node.is_connected("clicked", self, "_on_node_clicked"):
+		var _signal = node.connect("clicked", self, "_on_node_clicked")
 	Available.show()
 	Unavailable.hide()
 	active = true

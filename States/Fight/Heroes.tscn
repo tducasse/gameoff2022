@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://States/Fight/Heroes.gd" type="Script" id=1]
+
+[node name="Heroes" type="MarginContainer"]
+margin_right = 88.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+
+[node name="List" type="VBoxContainer" parent="."]
+margin_right = 88.0
+margin_bottom = 160.0

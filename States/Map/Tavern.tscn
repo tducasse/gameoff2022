@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Monsters/Images/monsterIcon.png" type="Texture" id=1]
+[ext_resource path="res://States/Map/Monster.gd" type="Script" id=2]
+
+[node name="Tavern" type="MarginContainer"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+script = ExtResource( 2 )
+
+[node name="PictureContainer" type="MarginContainer" parent="."]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+
+[node name="Picture" type="Sprite" parent="PictureContainer"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Overlay" type="ColorRect" parent="."]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+color = Color( 0, 0, 0, 0 )
+
+[connection signal="gui_input" from="Overlay" to="." method="_on_Overlay_gui_input"]

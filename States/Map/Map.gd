@@ -3,6 +3,7 @@ extends MarginContainer
 onready var Grid = $CenterContainer/GridContainer
 
 onready var Fight = preload("res://States/Fight/Fight.tscn")
+onready var Tavern = preload("res://States/Tavern/Tavern.tscn")
 onready var MapNode = preload("res://States/Map/MapNode.tscn")
 onready var Lines = $Lines
 
@@ -69,6 +70,8 @@ func _on_node_clicked(params):
 	gm.current_level_key = params.name
 	if params.type == "monster":
 		_on_monster_clicked(params)
+	if params.type == "tavern":
+		_on_tavern_clicked(params)
 
 
 func _on_monster_clicked(params):
@@ -79,4 +82,14 @@ func _on_monster_clicked(params):
 	main_node.call_deferred("free")
 	root_node.add_child(fight_instance)
 	fight_instance.init(params)
+	
+	
+func _on_tavern_clicked(params):
+	var tavern_instance = Tavern.instance()
+	var root_node = get_tree().get_root()
+	var main_node = get_node("/root/Map")
+	root_node.remove_child(main_node)
+	main_node.call_deferred("free")
+	root_node.add_child(tavern_instance)
+	tavern_instance.init(params)
 
