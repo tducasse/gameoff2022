@@ -34,7 +34,7 @@ func init(config):
 
 func _on_node_clicked():
 	emit_signal("node_clicked", params)
-	
+
 
 func mark_as_complete():
 	Unavailable.show()
@@ -48,6 +48,6 @@ func mark_as_available():
 	Available.show()
 	Unavailable.hide()
 	active = true
-	
+
 func mark_as_unavailable():
 	Unavailable.show()

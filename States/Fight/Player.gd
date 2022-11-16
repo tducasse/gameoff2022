@@ -15,11 +15,11 @@ func show_actions():
 		EndTurn.hide()
 
 
-func _handle_next_turn(_turn):
+func _handle_next_turn():
 	show_actions()
 	if gm.is_player_turn():
 		Hand.new_turn()
-	
+
 
 func _on_EndTurn_pressed():
 	Hand.discard()

@@ -5,7 +5,7 @@ onready var Map = preload("res://States/Map/Map.tscn")
 onready var Menu = preload("res://States/Menu/Menu.tscn")
 
 # warning-ignore:unused_signal
-signal turn_changed(turn)
+signal turn_changed()
 # warning-ignore:unused_signal
 signal card_played(params)
 # warning-ignore:unused_signal
@@ -22,6 +22,8 @@ signal damage_player(val)
 signal damage_monster(val)
 # warning-ignore:unused_signal
 signal monster_dead(val)
+#warning-ignore:unused_signal
+signal draw_card(name)
 
 
 var cards_per_turn = 4
@@ -46,6 +48,7 @@ var current_mana = 0
 var completed = {"indexes": [], "names": []}
 var current_level_key = ""
 var current_level_index = 0
+var nb_player_turns = 1
 
 enum PLAYER {
 	SELF,
@@ -60,7 +63,9 @@ func end_turn():
 	else:
 		current_turn = PLAYER.SELF
 		update_mana(starting_mana)
-	emit_signal("turn_changed", current_turn)
+	if current_turn == PLAYER.SELF:
+		nb_player_turns = nb_player_turns + 1
+	emit_signal("turn_changed")
 
 
 func is_player_turn():
@@ -115,7 +120,7 @@ func has_enough_mana(cost):
 func update_mana(value):
 	current_mana = value
 	emit_signal("mana_changed")
-	
+
 
 func spend_mana(cost):
 	if has_enough_mana(cost):
@@ -133,8 +138,9 @@ func start_fight():
 	current_turn = PLAYER.SELF
 	current_mana = starting_mana
 	current_armor = starting_armor
+	nb_player_turns = 1
 	emit_signal("mana_changed")
-	emit_signal("turn_changed", current_turn)
+	emit_signal("turn_changed")
 
 
 func play_attack_card(card):
@@ -164,7 +170,7 @@ func play_skill_card(card):
 func add_armor(armor):
 	current_armor = current_armor + armor
 	emit_signal("armor_changed")
-	
+
 
 func take_damage(dmg):
 	var remaining_damage = clamp(dmg - current_armor, 0, dmg)
@@ -207,8 +213,8 @@ func _on_monster_dead():
 
 func select_hero(hero):
 	hired_heroes.append(hero)
-	
-	
+
+
 func _on_hero_selected():
 	completed.indexes.append(current_level_index)
 	completed.names.append(current_level_key)
@@ -219,3 +225,7 @@ func _on_hero_selected():
 	main_node.call_deferred("free")
 	root_node.add_child(map_instance)
 	map_instance.init()
+
+
+func draw_card(name):
+	emit_signal("draw_card", name)

@@ -3,9 +3,19 @@ extends MarginContainer
 onready var Slots = $Slots
 
 
+func _ready():
+	var _signal = gm.connect("draw_card", self, "_draw_card")
+
+
 func add_card(card):
 	var slot = Slots.get_free_slot()
-	slot.put_card(card)
+	if slot:
+		slot.put_card(card)
+
+
+func _draw_card(name):
+	var card = gm.cards[name].duplicate()
+	add_card(card)
 
 
 func discard():

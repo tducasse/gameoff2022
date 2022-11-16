@@ -26,13 +26,13 @@ func init(params):
 
 func update_hp():
 	HP.text = "HP: " + str(monster.hp)
-	
+
 
 func update_armor():
 	Armor.text = "Armor: " + str(monster.armor)
-	
 
-func _on_turn_changed(_turn):
+
+func _on_turn_changed():
 	if not gm.is_player_turn():
 		do_action()
 		if gm.current_hp == 0:
@@ -48,7 +48,7 @@ func _on_turn_changed(_turn):
 
 func advertise_action():
 	NextAction.text = "Next action: " + next_action.name
-	
+
 
 func do_action():
 	if not next_action:
@@ -67,12 +67,12 @@ func do_action():
 
 func end_turn():
 	gm.end_turn()
-	
-	
+
+
 func add_armor(armor):
 	monster.armor = monster.armor + armor
 	update_armor()
-	
+
 
 func plan_action():
 	if monster.style == "random":

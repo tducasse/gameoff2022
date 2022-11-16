@@ -62,7 +62,7 @@ func init():
 	for edge in gm.edges:
 		if edge[0] in gm.completed.names:
 			children[nodes[edge[1]]].mark_as_available()
-		
+
 
 
 func _on_node_clicked(params):
@@ -82,8 +82,8 @@ func _on_monster_clicked(params):
 	main_node.call_deferred("free")
 	root_node.add_child(fight_instance)
 	fight_instance.init(params)
-	
-	
+
+
 func _on_tavern_clicked(params):
 	var tavern_instance = Tavern.instance()
 	var root_node = get_tree().get_root()

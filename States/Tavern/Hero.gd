@@ -17,7 +17,7 @@ func init(params):
 
 func _on_Select_pressed():
 	emit_signal("select_hero", hero)
-	
+
 
 func get_power_string(power):
 	return get_action(power) + " " + get_frequency(power)
@@ -30,8 +30,8 @@ func get_action(power):
 		return "Draw 1 " + str(power.value) + " card"
 	else:
 		return ""
-		
-		
+
+
 func get_frequency(power):
 	if power.when.get("frequency"):
 		if power.when.frequency == 1:

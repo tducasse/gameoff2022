@@ -13,7 +13,7 @@ var params = null
 
 func _ready():
 	var _signal = gm.connect("mana_changed", self, "change_playable")
-	
+
 
 func init(config):
 	params = config

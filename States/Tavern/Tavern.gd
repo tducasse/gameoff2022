@@ -4,7 +4,7 @@ onready var Heroes = $Heroes
 onready var Hero = preload("res://States/Tavern/Hero.tscn")
 
 
-var nb_heroes = 3
+var nb_heroes = 2
 
 func _ready():
 	var heroes = pick_random_heroes(nb_heroes)
@@ -24,8 +24,8 @@ func pick_random_hero():
 	var hero = gm.heroes[randi() % gm.heroes.size()]
 	var copyHero = hero.duplicate()
 	return copyHero
-	
-	
+
+
 func pick_random_heroes(nb):
 	var heroes = []
 	for _i in range(nb):
@@ -36,4 +36,4 @@ func pick_random_heroes(nb):
 func _on_select_hero(hero):
 	gm.select_hero(hero)
 	gm._on_hero_selected()
-	
+
