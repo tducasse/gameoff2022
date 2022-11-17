@@ -5,12 +5,15 @@ onready var Grid = $CenterContainer/GridContainer
 onready var Fight = preload("res://States/Fight/Fight.tscn")
 onready var Tavern = preload("res://States/Tavern/Tavern.tscn")
 onready var MapNode = preload("res://States/Map/MapNode.tscn")
+onready var Background = $Background
 onready var Lines = $Lines
 
 
 var nodes = {}
 
 func _ready():
+	Background.scale.x = 1024 / Background.texture.get_size().x
+	Background.scale.y = 600 / Background.texture.get_size().y
 	init_map()
 
 

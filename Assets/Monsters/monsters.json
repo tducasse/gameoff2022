@@ -2,6 +2,7 @@
   "troll": {
     "hp": 10,
     "name": "troll",
+    "image": "troll.png",
     "style": "random",
     "actions": [
       {
@@ -19,6 +20,7 @@
     ]
   },
   "turtle": {
+    "image":"turtle.png",
     "name": "turtle",
     "style": "random",
     "hp": 10,
@@ -34,6 +36,7 @@
     ]
   },
   "boss": {
+    "image": "boss.png",
     "hp": 50,
     "last": true,
     "name": "the big boss",

@@ -1,10 +1,11 @@
-extends MarginContainer
+extends VBoxContainer
 
 
-onready var Name = $VBoxContainer/Name
-onready var NextAction = $VBoxContainer/NextAction
-onready var HP = $VBoxContainer/HP
-onready var Armor = $VBoxContainer/Armor
+onready var Name = $HBoxContainer/VBoxContainer/Name
+onready var NextAction = $HBoxContainer/VBoxContainer/NextAction
+onready var HP = $HBoxContainer/VBoxContainer/HP
+onready var Armor = $HBoxContainer/VBoxContainer/Armor
+onready var Image = $HBoxContainer/Image
 
 var monster = {}
 
@@ -20,6 +21,7 @@ func init(params):
 	monster = params
 	Name.text = monster.name
 	monster.armor = 0
+	Image.texture = load("res://Assets/Monsters/Images/" + str(monster.image))
 	update_hp()
 	update_armor()
 
