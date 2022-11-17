@@ -50,9 +50,12 @@ func get_stats_text():
 			stats.append("hurt: " + str(damage))
 		var armor = s.get("armor")
 		if armor:
-			stats.append("armor: " + str(damage))
+			stats.append("armor: " + str(armor))
 	if o:
-		var damage = s.get("damage")
+		var damage = o.get("damage")
+		var armor = o.get("armor")
 		if damage:
 			stats.append("damage: " + str(damage))
+		if armor:
+			stats.append("foe armor :" + str(armor))
 	return "\n".join(stats)

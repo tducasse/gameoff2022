@@ -4,10 +4,30 @@
     "cards": [
       {
         "id": "charge",
-        "number": 10
+        "number": 2
+      },
+      {
+        "id": "flail",
+        "number": 1
+      },
+      {
+        "id": "berserk",
+        "number": 1
       },
       {
         "id": "barricade",
+        "number": 2
+      },
+      {
+        "id": "bastion",
+        "number": 1
+      },
+      {
+        "id": "turtle",
+        "number": 1
+      },
+      {
+        "id": "blind_shield",
         "number": 1
       },
       {

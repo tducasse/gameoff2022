@@ -13,8 +13,9 @@ var next_action = null
 var nb_turn = 1
 
 func _ready():
-	var _s1 = gm.connect("turn_changed", self, "_on_turn_changed")
-	var _s2 = gm.connect("damage_monster", self, "take_damage")
+	var _signal = gm.connect("turn_changed", self, "_on_turn_changed")
+	_signal = gm.connect("damage_monster", self, "take_damage")
+	_signal = gm.connect("armor_monster", self, "add_armor")
 
 
 func init(params):

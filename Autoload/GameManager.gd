@@ -21,6 +21,8 @@ signal damage_player(val)
 # warning-ignore:unused_signal
 signal damage_monster(val)
 # warning-ignore:unused_signal
+signal armor_monster(val)
+# warning-ignore:unused_signal
 signal monster_dead(last)
 #warning-ignore:unused_signal
 signal draw_card(name)
@@ -170,7 +172,8 @@ func play_attack_card(card):
 
 
 func play_skill_card(card):
-	var armor = card.get("self", {}).get("armor")
+	var self_armor = card.get("self", {}).get("armor")
+	var armor = card.get("other", {}).get("armor")
 	var self_dmg = card.get("self", {}).get("damage")
 	var dmg = card.get("other", {}).get("damage")
 	if dmg:
@@ -179,8 +182,10 @@ func play_skill_card(card):
 		emit_signal("damage_player", self_dmg)
 		take_damage(self_dmg)
 	if armor:
-		emit_signal("armor_player", armor)
-		add_armor(armor)
+		emit_signal("armor_monster", armor)
+	if self_armor:
+		emit_signal("armor_player", self_armor)
+		add_armor(self_armor)
 
 
 func add_armor(armor):

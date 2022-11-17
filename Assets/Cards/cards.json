@@ -1,6 +1,6 @@
 {
   "charge": {
-    "name": "charge",
+    "name": "Charge",
     "type": "attack",
     "image": "charge.png",
     "cost": 0,
@@ -9,15 +9,15 @@
       "armor": 0
     },
     "other": {
-      "damage": 4,
+      "damage": 3,
       "armor": 0
     }
   },
   "punch": {
-    "name": "punch",
+    "name": "Punch",
     "type": "attack",
     "image": "punch.png",
-    "cost": 2,
+    "cost": 1,
     "self": {
       "damage": 0,
       "armor": 0
@@ -27,8 +27,36 @@
       "armor": 0
     }
   },
+  "flail": {
+    "name": "Flail",
+    "type": "attack",
+    "image": "punch.png",
+    "cost": 2,
+    "self": {
+      "damage": 0,
+      "armor": 0
+    },
+    "other": {
+      "damage": 7,
+      "armor": 0
+    }
+  },
+  "berserk": {
+    "name": "Berserk",
+    "type": "attack",
+    "image": "punch.png",
+    "cost": 1,
+    "self": {
+      "damage": 4,
+      "armor": 0
+    },
+    "other": {
+      "damage": 11,
+      "armor": 0
+    }
+  },
   "barricade": {
-    "name": "barricade",
+    "name": "Barricade",
     "type": "skill",
     "image": "barricade.png",
     "cost": 1,
@@ -39,6 +67,48 @@
     "other": {
       "damage": 0,
       "armor": 0
+    }
+  },
+  "bastion": {
+    "name": "Bastion",
+    "type": "skill",
+    "image": "barricade.png",
+    "cost": 2,
+    "self": {
+      "damage": 0,
+      "armor": 10
+    },
+    "other": {
+      "damage": 0,
+      "armor": 0
+    }
+  },
+  "turtle": {
+    "name": "Turtle",
+    "type": "skill",
+    "image": "barricade.png",
+    "cost": 1,
+    "self": {
+      "damage": 0,
+      "armor": 2
+    },
+    "other": {
+      "damage": 2,
+      "armor": 0
+    }
+  },
+  "blind_shield": {
+    "name": "Blind shield",
+    "type": "skill",
+    "image": "barricade.png",
+    "cost": 1,
+    "self": {
+      "damage": 0,
+      "armor": 8
+    },
+    "other": {
+      "damage": 0,
+      "armor": 8
     }
   }
 }
