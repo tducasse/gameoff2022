@@ -44,6 +44,7 @@ func get_stats_text():
 	var stats = []
 	var s = params.get("self")
 	var o = params.get("other")
+	var t = params.get("times")
 	if s:
 		var damage = s.get("damage")
 		if damage:
@@ -54,8 +55,14 @@ func get_stats_text():
 	if o:
 		var damage = o.get("damage")
 		var armor = o.get("armor")
+		var status = o.get("status")
 		if damage:
 			stats.append("damage: " + str(damage))
 		if armor:
-			stats.append("foe armor :" + str(armor))
+			stats.append("foe armor:" + str(armor))
+		if status:
+			for st in status:
+				stats.append(st + ": " + str(status[st]))
+	if t:
+		stats.append("replay: " + str(t-1))
 	return "\n".join(stats)

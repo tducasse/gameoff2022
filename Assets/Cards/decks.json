@@ -4,14 +4,22 @@
     "cards": [
       {
         "id": "charge",
-        "number": 2
+        "number": 1
       },
       {
         "id": "flail",
         "number": 1
       },
       {
+        "id": "knives",
+        "number": 1
+      },
+      {
         "id": "berserk",
+        "number": 1
+      },
+      {
+        "id": "estocade",
         "number": 1
       },
       {
@@ -32,7 +40,7 @@
       },
       {
         "id": "punch",
-        "number": 0
+        "number": 2
       }
     ]
   }

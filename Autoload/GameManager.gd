@@ -23,6 +23,8 @@ signal damage_monster(val)
 # warning-ignore:unused_signal
 signal armor_monster(val)
 # warning-ignore:unused_signal
+signal status_monster(val)
+# warning-ignore:unused_signal
 signal monster_dead(last)
 #warning-ignore:unused_signal
 signal draw_card(name)
@@ -164,10 +166,17 @@ func start_fight():
 func play_attack_card(card):
 	var dmg = card.get("other", {}).get("damage")
 	var self_dmg = card.get("self", {}).get("damage")
-	if dmg:
-		emit_signal("damage_monster", dmg)
-	if self_dmg:
-		emit_signal("damage_player", self_dmg)
+	var status = card.get("other", {}).get("status")
+	var times = card.get("times", {})
+	if !times:
+		times = 1
+	for _i in range(times):
+		if dmg:
+			emit_signal("damage_monster", dmg)
+		if self_dmg:
+			emit_signal("damage_player", self_dmg)
+		if status:
+			emit_signal("status_monster", status)
 
 
 

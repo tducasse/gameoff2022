@@ -6,10 +6,12 @@ onready var NextAction = $HBoxContainer/VBoxContainer/NextAction
 onready var HP = $HBoxContainer/VBoxContainer/HP
 onready var Armor = $HBoxContainer/VBoxContainer/Armor
 onready var Image = $HBoxContainer/Image
+onready var Status = $HBoxContainer/VBoxContainer/Status
 
 signal monster_dead(last)
 
 var monster = {}
+var status = {}
 
 var next_action = null
 var nb_turn = 1
@@ -18,6 +20,7 @@ func _ready():
 	var _signal = gm.connect("turn_changed", self, "_on_turn_changed")
 	_signal = gm.connect("damage_monster", self, "take_damage")
 	_signal = gm.connect("armor_monster", self, "add_armor")
+	_signal = gm.connect("status_monster", self, "add_status")
 
 
 func init(params):
@@ -27,6 +30,7 @@ func init(params):
 	Image.texture = load("res://Assets/Monsters/Images/" + str(monster.image))
 	update_hp()
 	update_armor()
+	update_status()
 
 
 func update_hp():
@@ -35,6 +39,14 @@ func update_hp():
 
 func update_armor():
 	Armor.text = "Armor: " + str(monster.armor)
+
+
+func update_status():
+	var status_text = ""
+	if !status.empty() :
+		for i in status:
+			status_text += i + " " + str(status[i])
+	Status.text = status_text
 
 
 func _on_turn_changed():
@@ -67,6 +79,13 @@ func do_action():
 		take_damage(self_dmg)
 	if armor:
 		add_armor(armor)
+	for s in status:
+		if s == "bleeding":
+			take_damage(status[s])
+			status[s] -=1
+		if status[s] == 0:
+			status.erase(s)
+	update_status()
 	next_action = null
 
 
@@ -77,6 +96,16 @@ func end_turn():
 func add_armor(armor):
 	monster.armor = monster.armor + armor
 	update_armor()
+
+
+func add_status(afflictions):
+	for a in afflictions:
+		if status.has(a):
+			status[a] += afflictions[a]
+		else:
+			status[a] = afflictions[a]
+			
+	update_status()
 
 
 func plan_action():
@@ -99,8 +128,6 @@ func plan_random_action():
 		return
 	var action = actions[randi() % actions.size()]
 	next_action =  gm.actions.get(action).duplicate()
-
-
 
 
 func take_damage(dmg):

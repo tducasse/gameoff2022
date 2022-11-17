@@ -27,6 +27,21 @@
       "armor": 0
     }
   },
+  "knives": {
+    "name": "Knives",
+    "type": "attack",
+    "image": "punch.png",
+    "cost": 1,
+    "times": 2,
+    "self": {
+      "damage": 0,
+      "armor": 0
+    },
+    "other": {
+      "damage": 1,
+      "armor": 0
+    }
+  },
   "flail": {
     "name": "Flail",
     "type": "attack",
@@ -53,6 +68,23 @@
     "other": {
       "damage": 11,
       "armor": 0
+    }
+  },
+  "estocade": {
+    "name": "Estocade",
+    "type": "attack",
+    "image": "punch.png",
+    "cost": 1,
+    "self": {
+      "damage": 0,
+      "armor": 0
+    },
+    "other": {
+      "damage": 2,
+      "armor": 0,
+      "status": {
+        "bleeding": 2
+      }
     }
   },
   "barricade": {
