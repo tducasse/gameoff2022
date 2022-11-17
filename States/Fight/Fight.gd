@@ -17,3 +17,7 @@ func pick_random_monster(options):
 		return
 	var monster = options[randi() % options.size()]
 	return gm.monsters.get(monster).duplicate()
+
+
+func _on_Enemy_monster_dead(last):
+	gm.emit_signal("monster_dead", last)

@@ -59,6 +59,9 @@ func get_grid_margin(length, nb, node_size, space):
 
 func init():
 	var children = Grid.get_children()
+	for child in children:
+		if child.starter:
+			child.mark_as_unavailable()
 	for level in gm.completed.indexes:
 		var index = int(level)
 		children[index].mark_as_complete()
@@ -66,10 +69,6 @@ func init():
 		if edge[0] == gm.current_level_key:
 			var current = children[nodes[edge[1]]]
 			current.mark_as_available()
-	for child in children:
-		if child.starter:
-			child.mark_as_unavailable()
-
 
 
 func _on_node_clicked(params):

@@ -107,3 +107,5 @@ custom_constants/margin_top = 40
 [node name="Player" parent="VBoxContainer/MarginContainer2" instance=ExtResource( 1 )]
 margin_top = 40.0
 margin_bottom = 200.0
+
+[connection signal="monster_dead" from="VBoxContainer/Field/Enemy" to="." method="_on_Enemy_monster_dead"]

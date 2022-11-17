@@ -7,3 +7,5 @@
 - icons:
   - hourglass: <a href="https://www.flaticon.com/free-icons/hourglass" title="hourglass icons">Hourglass icons created by Those Icons - Flaticon</a>
   - checked: <a href="https://www.flaticon.com/free-icons/tick" title="tick icons">Tick icons created by Those Icons - Flaticon</a>
+  - tavern: <a href="https://www.flaticon.com/free-icons/tavern" title="tavern icons">Tavern icons created by Flat Icons - Flaticon</a>
+  - monster: <a href="https://www.flaticon.com/free-icons/grumpy" title="grumpy icons">Grumpy icons created by Smashicons - Flaticon</a>
