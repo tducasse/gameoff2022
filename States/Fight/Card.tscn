@@ -63,6 +63,13 @@ margin_right = 88.0
 margin_bottom = 67.0
 text = "barricade"
 
+[node name="Text" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 88.0
+margin_bottom = 85.0
+text = "atk 2"
+autowrap = true
+
 [node name="Overlay" type="ColorRect" parent="."]
 margin_right = 100.0
 margin_bottom = 160.0

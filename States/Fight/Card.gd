@@ -5,6 +5,7 @@ onready var Picture = $ColorRect/MarginContainer/VBoxContainer/VBoxContainer/Pic
 onready var Cost = $ColorRect/MarginContainer/VBoxContainer/Cost
 onready var PictureContainer = $ColorRect/MarginContainer/VBoxContainer/VBoxContainer/PictureContainer
 onready var Overlay = $Overlay
+onready var Text = $ColorRect/MarginContainer/VBoxContainer/VBoxContainer/Text
 
 
 signal card_clicked
@@ -23,6 +24,7 @@ func init(config):
 	var scale = PictureContainer.get_rect().size.x / Picture.texture.get_size().x
 	Picture.scale.x = scale
 	Picture.scale.y = scale
+	Text.text = get_stats_text()
 
 
 
@@ -36,3 +38,21 @@ func change_playable():
 		Overlay.color.a = 0.5
 	else:
 		Overlay.color.a = 0
+
+
+func get_stats_text():
+	var stats = []
+	var s = params.get("self")
+	var o = params.get("other")
+	if s:
+		var damage = s.get("damage")
+		if damage:
+			stats.append("hurt: " + str(damage))
+		var armor = s.get("armor")
+		if armor:
+			stats.append("armor: " + str(damage))
+	if o:
+		var damage = s.get("damage")
+		if damage:
+			stats.append("damage: " + str(damage))
+	return "\n".join(stats)
