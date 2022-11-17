@@ -50,7 +50,8 @@ func mark_as_unavailable():
 
 
 func image_unavailable():
-	modulate = Color("7e6e6e")
+	modulate = Color.black
 
 func image_complete():
-	modulate = Color("1cb01f")
+	modulate = Color("7e6e6e")
+
