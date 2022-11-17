@@ -37,7 +37,6 @@ func _on_node_clicked():
 func mark_as_complete():
 	complete = true
 	image_complete()
-	print("complete")
 
 
 func mark_as_available():
