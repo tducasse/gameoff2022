@@ -1,17 +1,38 @@
 extends MarginContainer
 
 
-onready var Name = $VBoxContainer/Name
-onready var Power = $VBoxContainer/Power
+onready var Name = $HBoxContainer/Name
+onready var Power = $HBoxContainer/Power
 
 var hero = {}
-
+var cooldown_icon = preload("res://Assets/Icons/hourglass.png")
+var ready_icon = preload("res://Assets/Icons/checked.png")
+var counter = 0
+var do_not_reset = false
 
 func init(params):
+	disable_power()
 	hero = params
+	counter = hero.power.when.frequency
 	Name.text = hero.name
 	attach_power()
-	Power.hide()
+
+
+func disable_power():
+	if counter > 0:
+		Power.icon = cooldown_icon
+		Power.disabled = true
+		if counter == 1:
+			Power.hint_tooltip = "Ready next turn"
+		else:
+			Power.hint_tooltip = "Ready in " + str(counter) + " turns"
+
+
+func enable_power():
+	Power.icon = ready_icon
+	Power.disabled = false
+	Power.hint_tooltip = "Ready!"
+	do_not_reset = true
 
 
 func attach_power():
@@ -21,9 +42,21 @@ func attach_power():
 
 func _on_turn_changed():
 	if gm.is_player_turn():
-		if gm.nb_player_turns % int(hero.power.when.frequency) == 0:
-			return Power.show()
-	Power.hide()
+		update_counter()
+		if counter == 0:
+			return enable_power()
+	return disable_power()
+
+
+func reset_counter():
+	counter = hero.power.when.get("frequency")
+	do_not_reset = false
+
+
+func update_counter():
+	if do_not_reset:
+		return
+	counter = counter - 1
 
 
 func activate_power():
@@ -31,11 +64,12 @@ func activate_power():
 		add_armor(hero.power.value)
 	elif hero.power.type == "card":
 		draw_card(hero.power.value)
+	reset_counter()
 
 
 func _on_Power_pressed():
 	activate_power()
-	Power.hide()
+	disable_power()
 
 
 func add_armor(armor):
