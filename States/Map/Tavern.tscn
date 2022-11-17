@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Monsters/Images/monsterIcon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Map/tavern_icon.png" type="Texture" id=1]
 [ext_resource path="res://States/Map/Monster.gd" type="Script" id=2]
 
 [node name="Tavern" type="MarginContainer"]
@@ -15,8 +15,6 @@ margin_bottom = 60.0
 rect_min_size = Vector2( 60, 60 )
 
 [node name="Picture" type="Sprite" parent="PictureContainer"]
-modulate = Color( 1, 0.0431373, 0, 1 )
-self_modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 1 )
 centered = false
 

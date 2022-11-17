@@ -52,7 +52,7 @@ func get_stats_text():
 		if armor:
 			stats.append("armor: " + str(damage))
 	if o:
-		var damage = s.get("damage")
+		var damage = o.get("damage")
 		if damage:
 			stats.append("damage: " + str(damage))
 	return "\n".join(stats)
