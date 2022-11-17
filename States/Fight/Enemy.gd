@@ -7,6 +7,8 @@ onready var HP = $HBoxContainer/VBoxContainer/HP
 onready var Armor = $HBoxContainer/VBoxContainer/Armor
 onready var Image = $HBoxContainer/Image
 
+signal monster_dead(last)
+
 var monster = {}
 
 var next_action = null
@@ -106,6 +108,7 @@ func take_damage(dmg):
 	monster.armor = remaining_armor
 	monster.hp = clamp(monster.hp - remaining_damage, 0, monster.hp)
 	if monster.hp == 0:
-		gm.emit_signal("monster_dead", monster.get("last"))
+		emit_signal("monster_dead", monster.get("last"))
 	update_armor()
 	update_hp()
+

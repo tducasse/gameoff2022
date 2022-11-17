@@ -5,7 +5,14 @@
     "value": [
       "troll",
       "turtle"
-    ]
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
   },
   "b": {
     "type": "monster",
