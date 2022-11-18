@@ -11,9 +11,11 @@ margin_bottom = 600.0
 script = ExtResource( 2 )
 
 [node name="Heroes" parent="." instance=ExtResource( 3 )]
+rect_min_size = Vector2( 40, 0 )
+size_flags_horizontal = 1
 
 [node name="Hand" parent="." instance=ExtResource( 1 )]
-margin_left = 92.0
+margin_left = 44.0
 
 [node name="Right" type="MarginContainer" parent="."]
 margin_left = 924.0

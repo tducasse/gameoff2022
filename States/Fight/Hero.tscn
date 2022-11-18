@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://States/Fight/Hero.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Icons/hourglass.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Heroes/Images/mage.png" type="Texture" id=3]
 
 [node name="Hero" type="MarginContainer"]
@@ -10,7 +9,7 @@ margin_bottom = 40.0
 script = ExtResource( 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 80.0
+margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="PictureContainer" type="CenterContainer" parent="HBoxContainer"]
@@ -25,10 +24,11 @@ hint_tooltip = "does soething"
 texture = ExtResource( 3 )
 expand = true
 
-[node name="Power" type="Button" parent="HBoxContainer"]
-margin_left = 44.0
-margin_right = 80.0
+[node name="Cooldown" type="Label" parent="HBoxContainer/PictureContainer/Picture"]
+margin_right = 40.0
 margin_bottom = 40.0
-icon = ExtResource( 2 )
+text = "1"
+align = 1
+valign = 1
 
-[connection signal="pressed" from="HBoxContainer/Power" to="." method="_on_Power_pressed"]
+[connection signal="gui_input" from="HBoxContainer/PictureContainer/Picture" to="." method="_on_Picture_gui_input"]

@@ -1,16 +1,15 @@
 extends MarginContainer
 
 
-onready var Power = $HBoxContainer/Power
 onready var Picture = $HBoxContainer/PictureContainer/Picture
+onready var Cooldown = $HBoxContainer/PictureContainer/Picture/Cooldown
 
 const hero_utils = preload("res://Utils/hero_utils.gd")
 
 var hero = {}
-var cooldown_icon = preload("res://Assets/Icons/hourglass.png")
-var ready_icon = preload("res://Assets/Icons/checked.png")
 var counter = 0
 var do_not_reset = false
+var disabled = true
 
 func init(params):
 	disable_power()
@@ -23,18 +22,15 @@ func init(params):
 
 func disable_power():
 	if counter > 0:
-		Power.icon = cooldown_icon
-		Power.disabled = true
-		if counter == 1:
-			Power.hint_tooltip = "Ready next turn"
-		else:
-			Power.hint_tooltip = "Ready in " + str(counter) + " turns"
+		Picture.self_modulate = Color("4a4545")
+		Cooldown.text = str(counter)
+		disabled = true
 
 
 func enable_power():
-	Power.icon = ready_icon
-	Power.disabled = false
-	Power.hint_tooltip = "Ready!"
+	Picture.self_modulate = Color(1,1,1,1)
+	Cooldown.text = ""
+	disabled = false
 	do_not_reset = true
 
 
@@ -70,14 +66,17 @@ func activate_power():
 	reset_counter()
 
 
-func _on_Power_pressed():
-	activate_power()
-	disable_power()
-
-
 func add_armor(armor):
 	gm.add_armor(armor)
 
 
 func draw_card(card):
 	gm.draw_card(card)
+
+
+
+func _on_Picture_gui_input(event):
+	if event is InputEventMouseButton && event.pressed && event.button_index == BUTTON_LEFT:
+		if not disabled:
+			activate_power()
+			disable_power()
