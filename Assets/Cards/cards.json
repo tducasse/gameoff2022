@@ -31,6 +31,7 @@
     "name": "Knives",
     "type": "attack",
     "image": "knives.png",
+    "sfx": "knife.ogg",
     "cost": 1,
     "times": 2,
     "self": {

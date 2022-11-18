@@ -7,10 +7,11 @@ onready var PictureContainer = $ColorRect/MarginContainer/VBoxContainer/VBoxCont
 onready var Overlay = $Overlay
 onready var Text = $ColorRect/MarginContainer/VBoxContainer/VBoxContainer/Text
 
-
 signal card_clicked
 
 var params = null
+
+var sfx = null
 
 func _ready():
 	var _signal = gm.connect("mana_changed", self, "change_playable")
@@ -20,6 +21,8 @@ func init(config):
 	params = config
 	Name.text = str(params.name)
 	Cost.text = str(params.cost)
+	if params.get("sfx"):
+		sfx = load("res://Assets/Cards/SFX/" + params.sfx)
 	Picture.texture = load("res://Assets/Cards/Images/" + str(params.image))
 	Text.text = get_stats_text()
 
@@ -27,6 +30,7 @@ func init(config):
 
 func _on_Overlay_gui_input(event):
 	if event is InputEventMouseButton && event.pressed && event.button_index == BUTTON_LEFT:
+		Sounds.play_sfx(sfx)
 		emit_signal("card_clicked")
 
 

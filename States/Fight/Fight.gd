@@ -7,6 +7,10 @@ onready var Rewards = $Rewards
 var enemy = null
 var reward = null
 
+func _ready():
+	Sounds.play_battle()
+
+
 func init(params):
 	Rewards.hide()
 	Rewards.dialog_text = ""
@@ -25,6 +29,7 @@ func pick_random_monster(options):
 
 
 func _on_Enemy_monster_dead(last):
+	Sounds.pause()
 	if last:
 		gm.emit_signal("monster_dead", last)
 	else:

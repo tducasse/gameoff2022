@@ -15,6 +15,7 @@ func _ready():
 	Background.scale.x = 1024 / Background.texture.get_size().x
 	Background.scale.y = 600 / Background.texture.get_size().y
 	init_map()
+	Sounds.play_map()
 
 
 func init_map():

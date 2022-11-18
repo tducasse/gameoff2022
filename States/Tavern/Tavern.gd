@@ -13,6 +13,8 @@ func _ready():
 		Heroes.add_child(hero_instance)
 		hero_instance.init(hero)
 		var _signal = hero_instance.connect("select_hero", self, "_on_select_hero")
+	Sounds.play_tavern()
+
 
 func init(_params):
 	pass

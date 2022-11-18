@@ -5,7 +5,8 @@ onready var Map = preload("res://States/Map/Map.tscn")
 
 
 func _ready():
-	  randomize()
+	randomize()
+	Sounds.play_menu()
 
 
 func _on_Start_pressed():

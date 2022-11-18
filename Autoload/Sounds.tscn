@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Autoload/Sounds.gd" type="Script" id=2]
+
+[node name="Sounds" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="TweenOut" type="Tween" parent="."]
+
+[node name="TweenIn" type="Tween" parent="."]
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+volume_db = 5.0
+
+[connection signal="tween_step" from="TweenOut" to="." method="_on_TweenOut_tween_step"]
