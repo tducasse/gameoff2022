@@ -30,7 +30,7 @@
   "knives": {
     "name": "Knives",
     "type": "attack",
-    "image": "punch.png",
+    "image": "knives.png",
     "cost": 1,
     "times": 2,
     "self": {
@@ -45,7 +45,7 @@
   "flail": {
     "name": "Flail",
     "type": "attack",
-    "image": "punch.png",
+    "image": "flail.png",
     "cost": 2,
     "self": {
       "damage": 0,
@@ -59,7 +59,7 @@
   "berserk": {
     "name": "Berserk",
     "type": "attack",
-    "image": "punch.png",
+    "image": "berserk.png",
     "cost": 1,
     "self": {
       "damage": 4,
@@ -71,9 +71,9 @@
     }
   },
   "estocade": {
-    "name": "Estocade",
+    "name": "Thrust",
     "type": "attack",
-    "image": "punch.png",
+    "image": "thrust.png",
     "cost": 1,
     "self": {
       "damage": 0,
@@ -104,7 +104,7 @@
   "bastion": {
     "name": "Bastion",
     "type": "skill",
-    "image": "barricade.png",
+    "image": "bastion.png",
     "cost": 2,
     "self": {
       "damage": 0,
@@ -118,7 +118,7 @@
   "turtle": {
     "name": "Turtle",
     "type": "skill",
-    "image": "barricade.png",
+    "image": "turtle.png",
     "cost": 1,
     "self": {
       "damage": 0,
@@ -132,7 +132,7 @@
   "blind_shield": {
     "name": "Blind shield",
     "type": "skill",
-    "image": "barricade.png",
+    "image": "shield.png",
     "cost": 1,
     "self": {
       "damage": 0,

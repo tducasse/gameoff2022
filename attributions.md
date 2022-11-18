@@ -9,3 +9,14 @@
   - checked: <a href="https://www.flaticon.com/free-icons/tick" title="tick icons">Tick icons created by Those Icons - Flaticon</a>
   - tavern: <a href="https://www.flaticon.com/free-icons/tavern" title="tavern icons">Tavern icons created by Flat Icons - Flaticon</a>
   - monster: <a href="https://www.flaticon.com/free-icons/grumpy" title="grumpy icons">Grumpy icons created by Smashicons - Flaticon</a>
+- cards:
+  - barricade: <a href="https://www.flaticon.com/free-icons/barricade" title="barricade icons">Barricade icons created by Marcus Christensen - Flaticon</a>
+  - charge: <a href="https://www.flaticon.com/free-icons/rush" title="rush icons">Rush icons created by Flat Icons - Flaticon</a>
+  - punch: <a href="https://www.flaticon.com/free-icons/punch" title="punch icons">Punch icons created by surang - Flaticon</a>
+  - knives: <a href="https://www.flaticon.com/free-icons/knives" title="knives icons">Knives icons created by max.icons - Flaticon</a>
+  - flail: <a href="https://www.flaticon.com/free-icons/fight" title="fight icons">Fight icons created by Freepik - Flaticon</a>
+  - thrust: <a href="https://www.flaticon.com/free-icons/sword" title="sword icons">Sword icons created by Freepik - Flaticon</a>
+  - berserk: <a href="https://www.flaticon.com/free-icons/angry" title="angry icons">Angry icons created by Freepik - Flaticon</a>
+  - bastion: <a href="https://www.flaticon.com/free-icons/castle" title="castle icons">Castle icons created by Freepik - Flaticon</a>
+  - shield: <a href="https://www.flaticon.com/free-icons/sword" title="sword icons">Sword icons created by Freepik - Flaticon</a>
+  - turtle: <a href="https://www.flaticon.com/free-icons/spartan" title="spartan icons">Spartan icons created by Freepik - Flaticon</a>
