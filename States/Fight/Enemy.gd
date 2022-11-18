@@ -1,12 +1,12 @@
 extends VBoxContainer
 
 
-onready var Name = $HBoxContainer/VBoxContainer/Name
-onready var NextAction = $HBoxContainer/VBoxContainer/NextAction
-onready var HP = $HBoxContainer/VBoxContainer/HP
-onready var Armor = $HBoxContainer/VBoxContainer/Armor
-onready var Image = $HBoxContainer/Image
-onready var Status = $HBoxContainer/VBoxContainer/Status
+onready var Name = $VBoxContainer/VBoxContainer/Name
+onready var NextAction = $VBoxContainer/VBoxContainer/NextAction
+onready var HP = $VBoxContainer/VBoxContainer/HP
+onready var Armor = $VBoxContainer/VBoxContainer/Armor
+onready var Picture = $VBoxContainer/PictureContainer/Picture
+onready var Status = $VBoxContainer/VBoxContainer/Status
 
 signal monster_dead(last)
 
@@ -27,7 +27,7 @@ func init(params):
 	monster = params
 	Name.text = monster.name
 	monster.armor = 0
-	Image.texture = load("res://Assets/Monsters/Images/" + str(monster.image))
+	Picture.texture = load("res://Assets/Monsters/Images/" + str(monster.image))
 	update_hp()
 	update_armor()
 	update_status()

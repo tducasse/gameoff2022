@@ -23,3 +23,7 @@
 - heroes:
   - dwarf: <a href="https://www.flaticon.com/free-icons/dwarf" title="dwarf icons">Dwarf icons created by Freepik - Flaticon</a>
   - mage: <a href="https://www.flaticon.com/free-icons/wizard" title="wizard icons">Wizard icons created by Freepik - Flaticon</a>
+- monsters:
+  - turtle:<a href="https://www.flaticon.com/free-icons/turtle" title="turtle icons">Turtle icons created by David Carapinha - Flaticon</a>
+  - troll: <a href="https://www.flaticon.com/free-icons/troll" title="troll icons">Troll icons created by Smashicons - Flaticon</a>
+  - dragon: <a href="https://www.flaticon.com/free-icons/enemy" title="enemy icons">Enemy icons created by Freepik - Flaticon</a> 

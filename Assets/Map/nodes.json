@@ -18,7 +18,14 @@
     "type": "monster",
     "value": [
       "turtle"
-    ]
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
   },
   "c": {
     "type": "monster",

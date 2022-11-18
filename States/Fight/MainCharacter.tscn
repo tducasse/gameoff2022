@@ -14,13 +14,14 @@ size_flags_horizontal = 3
 margin_right = 128.0
 margin_bottom = 168.0
 size_flags_horizontal = 3
+custom_constants/separation = 20
 alignment = 2
 
 [node name="HP" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_left = 0.0
-margin_top = 22.0
+margin_top = 6.0
 margin_right = 128.0
-margin_bottom = 36.0
+margin_bottom = 20.0
 align = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]

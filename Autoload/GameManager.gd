@@ -148,6 +148,7 @@ func spend_mana(cost):
 
 
 func start_game():
+	hired_heroes = []
 	current_hp = starting_hp
 	completed.indexes = []
 	completed.names = []
