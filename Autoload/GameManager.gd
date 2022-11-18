@@ -39,6 +39,7 @@ var starting_armor = 0
 
 var cards = {}
 var decks = {}
+var nodes = {}
 var deck = []
 var map = []
 var monsters = {}
@@ -49,6 +50,7 @@ var heroes = {}
 var hired_heroes = []
 
 var current_hp = 0
+var max_hp = starting_hp
 var current_armor = 0
 var current_mana = 0
 var in_hand = []
@@ -112,7 +114,7 @@ func shuffle():
 
 
 func make_map():
-	var nodes = json.load_json_file("res://Assets/Map/nodes.json")
+	nodes = json.load_json_file("res://Assets/Map/nodes.json")
 	var map_json = json.load_json_file("res://Assets/Map/map.json")
 	var layout = map_json.map
 	edges = map_json.edges
@@ -149,6 +151,7 @@ func start_game():
 	current_hp = starting_hp
 	completed.indexes = []
 	completed.names = []
+	max_hp = starting_hp
 	emit_signal("hp_changed")
 
 
@@ -300,3 +303,12 @@ func _on_hero_selected():
 
 func draw_card(name):
 	emit_signal("draw_card", name)
+
+
+func add_card_to_deck(name):
+	var card = cards[name].duplicate()
+	deck.append(card)
+
+
+func get_reward_hp(hp):
+	current_hp = clamp(current_hp + hp, 0, max_hp)

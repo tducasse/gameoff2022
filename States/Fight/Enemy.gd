@@ -104,7 +104,7 @@ func add_status(afflictions):
 			status[a] += afflictions[a]
 		else:
 			status[a] = afflictions[a]
-			
+
 	update_status()
 
 

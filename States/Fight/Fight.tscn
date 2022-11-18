@@ -108,4 +108,11 @@ custom_constants/margin_top = 40
 margin_top = 40.0
 margin_bottom = 200.0
 
+[node name="Rewards" type="AcceptDialog" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+popup_exclusive = true
+window_title = "Rewards"
+
 [connection signal="monster_dead" from="VBoxContainer/Field/Enemy" to="." method="_on_Enemy_monster_dead"]
+[connection signal="confirmed" from="Rewards" to="." method="_on_Rewards_confirmed"]
