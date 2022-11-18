@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://States/Tavern/Hero.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/mage.png-eb6c8387f71c11a3771f5c656fc3df5e.stex"
 
 [node name="Hero" type="MarginContainer"]
 margin_right = 40.0
@@ -31,24 +35,40 @@ text = "Name"
 align = 1
 uppercase = true
 
-[node name="Power" type="Label" parent="Stats"]
+[node name="PictureContainer" type="CenterContainer" parent="Stats"]
 margin_top = 108.0
 margin_right = 200.0
-margin_bottom = 122.0
+margin_bottom = 196.0
+rect_min_size = Vector2( 0, 88 )
+
+[node name="Picture" type="TextureRect" parent="Stats/PictureContainer"]
+margin_left = 56.0
+margin_right = 144.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 88, 88 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 1 )
+expand = true
+
+[node name="Power" type="Label" parent="Stats"]
+margin_top = 236.0
+margin_right = 200.0
+margin_bottom = 250.0
 text = "Draw a fireball every 2 turns"
 align = 1
 
 [node name="MarginContainer" type="CenterContainer" parent="Stats"]
-margin_top = 162.0
+margin_top = 290.0
 margin_right = 200.0
 margin_bottom = 400.0
 size_flags_vertical = 3
 
 [node name="Select" type="Button" parent="Stats/MarginContainer"]
 margin_left = 74.0
-margin_top = 109.0
+margin_top = 45.0
 margin_right = 125.0
-margin_bottom = 129.0
+margin_bottom = 65.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Select"

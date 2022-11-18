@@ -1,6 +1,7 @@
 [
   {
     "name": "mage",
+    "image": "mage.png",
     "power": {
       "type": "card",
       "when": {
@@ -11,6 +12,7 @@
   },
   {
     "name": "dwarf",
+    "image": "dwarf.png",
     "power": {
       "type": "armor",
       "value": 1,

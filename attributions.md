@@ -20,3 +20,6 @@
   - bastion: <a href="https://www.flaticon.com/free-icons/castle" title="castle icons">Castle icons created by Freepik - Flaticon</a>
   - shield: <a href="https://www.flaticon.com/free-icons/sword" title="sword icons">Sword icons created by Freepik - Flaticon</a>
   - turtle: <a href="https://www.flaticon.com/free-icons/spartan" title="spartan icons">Spartan icons created by Freepik - Flaticon</a>
+- heroes:
+  - dwarf: <a href="https://www.flaticon.com/free-icons/dwarf" title="dwarf icons">Dwarf icons created by Freepik - Flaticon</a>
+  - mage: <a href="https://www.flaticon.com/free-icons/wizard" title="wizard icons">Wizard icons created by Freepik - Flaticon</a>

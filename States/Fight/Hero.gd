@@ -1,8 +1,10 @@
 extends MarginContainer
 
 
-onready var Name = $HBoxContainer/Name
 onready var Power = $HBoxContainer/Power
+onready var Picture = $HBoxContainer/PictureContainer/Picture
+
+const hero_utils = preload("res://Utils/hero_utils.gd")
 
 var hero = {}
 var cooldown_icon = preload("res://Assets/Icons/hourglass.png")
@@ -12,9 +14,10 @@ var do_not_reset = false
 
 func init(params):
 	disable_power()
+	Picture.texture = load("res://Assets/Heroes/Images/" + params.image)
 	hero = params
+	Picture.hint_tooltip = hero_utils.get_power_string(hero.power)
 	counter = hero.power.when.frequency
-	Name.text = hero.name
 	attach_power()
 
 
