@@ -30,7 +30,6 @@ func init(config):
 
 func _on_Overlay_gui_input(event):
 	if event is InputEventMouseButton && event.pressed && event.button_index == BUTTON_LEFT:
-		Sounds.play_sfx(sfx)
 		emit_signal("card_clicked")
 
 

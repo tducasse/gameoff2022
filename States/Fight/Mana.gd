@@ -10,4 +10,4 @@ func _ready():
 func update_mana(b=true):
 	self.text = "Mana: " + str(gm.current_mana)
 	if b:
-		gm.blink(self)
+		gm.blink(self, "p_mana")

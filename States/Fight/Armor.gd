@@ -10,4 +10,4 @@ func _ready():
 func update_armor(b=true):
 	self.text = "Armor: " + str(gm.current_armor)
 	if b:
-		gm.blink(self)
+		gm.blink(self, "p_armor")

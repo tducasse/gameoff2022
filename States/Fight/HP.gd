@@ -10,4 +10,4 @@ func _ready():
 func update_hp(b=true):
 	self.text = "HP: " + str(gm.current_hp)
 	if b:
-		gm.blink(self)
+		gm.blink(self, "p_hp")

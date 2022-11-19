@@ -31,6 +31,8 @@ func play_card():
 
 func _on_card_clicked():
 	if gm.has_enough_mana(card.params.cost):
+		Sounds.play_sfx(card.sfx)
 		play_card()
 	else:
+		Sounds.play_sfx(gm.meep_merp)
 		print("not enough mana")

@@ -8,6 +8,9 @@ onready var Armor = $VBoxContainer/VBoxContainer/Armor
 onready var Picture = $VBoxContainer/PictureContainer/Picture
 onready var Status = $VBoxContainer/VBoxContainer/Status
 
+
+
+
 signal monster_dead(last)
 
 var monster = {}
@@ -36,17 +39,13 @@ func init(params):
 func update_hp(b=true):
 	HP.text = "HP: " + str(monster.hp)
 	if b:
-		blink(HP)
+		blink(HP, "en_hp")
 
 
 func update_armor(b=true):
 	Armor.text = "Armor: " + str(monster.armor)
 	if b:
-		blink(Armor)
-	
-
-func blink(node):
-	gm.blink(node)
+		blink(Armor, "en_armor")
 
 
 func update_status(b=true):
@@ -56,12 +55,16 @@ func update_status(b=true):
 			status_text += i + " " + str(status[i])
 	Status.text = status_text
 	if b:
-		blink(Status)
+		blink(Status, "en_status")
+
+
+func blink(node, stat):
+	gm.blink(node, stat)
 
 
 func _on_turn_changed():
 	if not gm.is_player_turn():
-		# TODO: replace with an animation		
+		# TODO: replace with an animation
 		yield(get_tree().create_timer(0.5), "timeout")
 		do_action()
 		if gm.current_hp == 0:

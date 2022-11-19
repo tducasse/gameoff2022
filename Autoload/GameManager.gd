@@ -3,6 +3,7 @@ extends Node
 const json = preload("res://Utils/json.gd")
 onready var Map = preload("res://States/Map/Map.tscn")
 onready var Menu = preload("res://States/Menu/Menu.tscn")
+onready var meep_merp = preload("res://Assets/Cards/SFX/meep-merp.ogg")
 
 # warning-ignore:unused_signal
 signal turn_changed()
@@ -31,6 +32,15 @@ signal draw_card(name)
 #warning-ignore:unused_signal
 signal card_count_updated()
 
+
+var blinking = {
+	"en_armor": false,
+	"en_hp": false,
+	"en_status": false,
+	"p_armor": false,
+	"p_hp": false,
+	"p_mana": false,
+}
 
 var cards_per_turn = 4
 var starting_mana = 3
@@ -324,12 +334,17 @@ func get_reward_hp(hp):
 
 
 
-func blink(node):
-	if not node:
+func blink(node, stat):
+	if blinking[stat]:
 		return
+	blinking[stat] = true
 	for _i in range(4):
+		if not node:
+			blinking[stat] = false
+			return
 		if node.modulate == Color(1,1,1,1):
 			node.modulate = Color(1,0,0,1)
 		else:
 			node.modulate = Color(1,1,1,1)
 		yield(get_tree().create_timer(0.2), "timeout")
+	blinking[stat] = false
