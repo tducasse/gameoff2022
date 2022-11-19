@@ -46,6 +46,7 @@ var monsters = {}
 var actions = {}
 var edges = []
 var heroes = {}
+var sfx = {}
 
 var hired_heroes = []
 
@@ -89,6 +90,10 @@ func _ready():
 	monsters = json.load_json_file("res://Assets/Monsters/monsters.json")
 	actions = json.load_json_file("res://Assets/Monsters/actions.json")
 	heroes = json.load_json_file("res://Assets/Heroes/heroes.json")
+	for key in actions.keys():
+		var sound = actions[key].get("sfx")
+		if sound:
+			sfx[key] = load("res://Assets/Cards/SFX/" + sound)
 	make_map()
 	make_deck(decks, cards, "default")
 	update_mana(starting_mana)
@@ -207,14 +212,17 @@ func add_armor(armor):
 
 
 func take_damage(dmg):
+	var had_armor = current_armor
 	var remaining_damage = clamp(dmg - current_armor, 0, dmg)
 	var remaining_armor = clamp(current_armor - dmg, 0, current_armor)
 	current_armor = remaining_armor
 	current_hp = clamp(current_hp - remaining_damage, 0, current_hp)
 	if current_hp == 0:
 		return player_dead()
-	emit_signal("hp_changed")
-	emit_signal("armor_changed")
+	if current_armor == 0:
+		emit_signal("hp_changed")
+	if had_armor:
+		emit_signal("armor_changed")
 
 
 func _on_card_played(card):
@@ -313,3 +321,15 @@ func add_card_to_deck(name):
 
 func get_reward_hp(hp):
 	current_hp = clamp(current_hp + hp, 0, max_hp)
+
+
+
+func blink(node):
+	if not node:
+		return
+	for _i in range(4):
+		if node.modulate == Color(1,1,1,1):
+			node.modulate = Color(1,0,0,1)
+		else:
+			node.modulate = Color(1,1,1,1)
+		yield(get_tree().create_timer(0.2), "timeout")

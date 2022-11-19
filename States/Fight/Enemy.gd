@@ -28,34 +28,46 @@ func init(params):
 	Name.text = monster.name
 	monster.armor = 0
 	Picture.texture = load("res://Assets/Monsters/Images/" + str(monster.image))
-	update_hp()
-	update_armor()
-	update_status()
+	update_hp(false)
+	update_armor(false)
+	update_status(false)
 
 
-func update_hp():
+func update_hp(b=true):
 	HP.text = "HP: " + str(monster.hp)
+	if b:
+		blink(HP)
 
 
-func update_armor():
+func update_armor(b=true):
 	Armor.text = "Armor: " + str(monster.armor)
+	if b:
+		blink(Armor)
+	
+
+func blink(node):
+	gm.blink(node)
 
 
-func update_status():
+func update_status(b=true):
 	var status_text = ""
 	if !status.empty() :
 		for i in status:
 			status_text += i + " " + str(status[i])
 	Status.text = status_text
+	if b:
+		blink(Status)
 
 
 func _on_turn_changed():
 	if not gm.is_player_turn():
+		# TODO: replace with an animation		
+		yield(get_tree().create_timer(0.5), "timeout")
 		do_action()
 		if gm.current_hp == 0:
 			return
 		# TODO: replace with an animation
-		yield(get_tree().create_timer(1), "timeout")
+		yield(get_tree().create_timer(0.5), "timeout")
 		end_turn()
 		nb_turn = nb_turn + 1
 	else:
@@ -64,7 +76,12 @@ func _on_turn_changed():
 
 
 func advertise_action():
-	NextAction.text = "Next action: " + next_action.name
+	var armor = next_action.get("self", {}).get("armor")
+	var dmg = next_action.get("other", {}).get("damage")
+	if dmg:
+		NextAction.text = "Next action: " + str(dmg) + " dmg"
+	if armor:
+		NextAction.text = "Next action: " + str(armor) + " armor"
 
 
 func do_action():
@@ -73,6 +90,9 @@ func do_action():
 	var armor = next_action.get("self", {}).get("armor")
 	var self_dmg = next_action.get("self", {}).get("damage")
 	var dmg = next_action.get("other", {}).get("damage")
+	var sfx = next_action.get("sfx")
+	if sfx:
+		Sounds.play_sfx(gm.sfx[next_action.id])
 	if dmg:
 		gm.emit_signal("damage_player", dmg)
 	if self_dmg:
@@ -127,16 +147,20 @@ func plan_random_action():
 	if len(actions) < 1:
 		return
 	var action = actions[randi() % actions.size()]
-	next_action =  gm.actions.get(action).duplicate()
+	next_action = gm.actions.get(action).duplicate()
+	next_action["id"] = action
 
 
 func take_damage(dmg):
+	var had_armor = monster.armor
 	var remaining_damage = clamp(dmg - monster.armor, 0, dmg)
 	var remaining_armor = clamp(monster.armor - dmg, 0, monster.armor)
 	monster.armor = remaining_armor
 	monster.hp = clamp(monster.hp - remaining_damage, 0, monster.hp)
 	if monster.hp == 0:
 		emit_signal("monster_dead", monster.get("last"))
-	update_armor()
-	update_hp()
+	if monster.armor == 0:
+		update_hp()
+	if had_armor:
+		update_armor()
 

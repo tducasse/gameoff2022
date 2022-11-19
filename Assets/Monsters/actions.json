@@ -1,23 +1,27 @@
 {
   "punch": {
     "name": "punch",
+    "sfx": "punch.ogg",
     "other": {
       "damage": 2
     }
   },
   "kick": {
     "name": "kick",
+    "sfx": "punch.ogg",
     "other": {
       "damage": 3
     }
   },
   "barricade": {
+    "sfx": "barricade.ogg",
     "name": "barricade",
     "self": {
       "armor": 2
     }
   },
   "explosion": {
+    "sfx": "charge.ogg",
     "name": "explosion",
     "other": {
       "damage": 10

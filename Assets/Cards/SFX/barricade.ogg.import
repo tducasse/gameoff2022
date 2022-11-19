@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/barricade.ogg-6dba904169f9b1323fad3ce7cfa75882.oggstr"
+
+[deps]
+
+source_file="res://Assets/Cards/SFX/barricade.ogg"
+dest_files=[ "res://.import/barricade.ogg-6dba904169f9b1323fad3ce7cfa75882.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

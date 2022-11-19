@@ -2,6 +2,7 @@
   "charge": {
     "name": "Charge",
     "type": "attack",
+    "sfx": "charge.ogg",
     "image": "charge.png",
     "cost": 0,
     "self": {
@@ -16,6 +17,7 @@
   "punch": {
     "name": "Punch",
     "type": "attack",
+    "sfx": "punch.ogg",
     "image": "punch.png",
     "cost": 1,
     "self": {
@@ -46,6 +48,7 @@
   "flail": {
     "name": "Flail",
     "type": "attack",
+    "sfx": "flail.ogg",
     "image": "flail.png",
     "cost": 2,
     "self": {
@@ -59,6 +62,7 @@
   },
   "berserk": {
     "name": "Berserk",
+    "sfx": "charge.ogg",
     "type": "attack",
     "image": "berserk.png",
     "cost": 1,
@@ -72,6 +76,7 @@
     }
   },
   "estocade": {
+    "sfx": "knife.ogg",
     "name": "Thrust",
     "type": "attack",
     "image": "thrust.png",
@@ -89,6 +94,7 @@
     }
   },
   "barricade": {
+    "sfx": "barricade.ogg",
     "name": "Barricade",
     "type": "skill",
     "image": "barricade.png",
@@ -104,6 +110,7 @@
   },
   "bastion": {
     "name": "Bastion",
+    "sfx": "barricade.ogg",
     "type": "skill",
     "image": "bastion.png",
     "cost": 2,
@@ -117,6 +124,7 @@
     }
   },
   "turtle": {
+    "sfx": "barricade.ogg",
     "name": "Turtle",
     "type": "skill",
     "image": "turtle.png",
@@ -131,6 +139,7 @@
     }
   },
   "blind_shield": {
+    "sfx": "barricade.ogg",
     "name": "Blind shield",
     "type": "skill",
     "image": "shield.png",

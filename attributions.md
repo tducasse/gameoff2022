@@ -88,3 +88,16 @@ https://creativecommons.org/licenses/by/4.0/
 ## SFX
 ### knife
 https://freesound.org/people/Merrick079/sounds/568169/ 
+
+### punch
+https://freesound.org/people/EminYILDIRIM/sounds/545021/
+
+### flail
+https://freesound.org/people/JPhilipp/sounds/119061/
+
+### charge
+https://freesound.org/people/Hybrid_V/sounds/319590/
+
+### barricade
+https://freesound.org/people/runningmind/sounds/363173/
+

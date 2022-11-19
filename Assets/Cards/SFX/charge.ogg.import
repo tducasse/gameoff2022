@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/charge.ogg-29093eb0e0cf833f2f2d36fe7bd29c9e.oggstr"
+
+[deps]
+
+source_file="res://Assets/Cards/SFX/charge.ogg"
+dest_files=[ "res://.import/charge.ogg-29093eb0e0cf833f2f2d36fe7bd29c9e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

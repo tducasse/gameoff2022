@@ -13,6 +13,6 @@ autoplay = true
 [node name="TweenIn" type="Tween" parent="."]
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
-volume_db = 5.0
+volume_db = 10.0
 
 [connection signal="tween_step" from="TweenOut" to="." method="_on_TweenOut_tween_step"]
