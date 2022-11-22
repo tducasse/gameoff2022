@@ -22,17 +22,10 @@
   "turtle": {
     "image":"turtle.png",
     "name": "turtle",
-    "style": "random",
+    "style": "sequence",
     "hp": 10,
     "actions": [
-      {
-        "id": "punch",
-        "weight": 1
-      },
-      {
-        "id": "barricade",
-        "weight": 3
-      }
+      "barricade", "punch"
     ]
   },
   "boss": {

@@ -15,6 +15,7 @@
     }
   },
   "b": {
+    "starter": true,
     "type": "monster",
     "value": [
       "turtle"
@@ -28,28 +29,184 @@
     }
   },
   "c": {
+    "starter": true,
     "type": "monster",
     "value": [
-      "troll"
-    ]
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
   },
   "d": {
-    "type": "monster",
-    "value": [
-      "boss"
-    ]
+    "type": "tavern"
   },
   "e": {
     "type": "monster",
     "value": [
-      "troll"
-    ]
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
   },
   "f": {
-    "starter": true,
-    "type": "tavern"
+    "type": "monster",
+    "value": [
+      "troll",
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
   },
   "g": {
+    "type": "monster",
+    "value": [
+      "troll",
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
+  },
+  "h": {
     "type": "tavern"
+  },
+  "i": {
+    "type": "monster",
+    "value": [
+      "troll",
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
+  },
+  "j": {
+    "type": "monster",
+    "value": [
+      "troll",
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
+  },
+  "k": {
+    "type": "monster",
+    "value": [
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
+  },
+  "l": {
+    "type": "tavern"
+  },
+  "m": {
+    "type": "monster",
+    "value": [
+      "troll",
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
+  },
+  "n": {
+    "type": "monster",
+    "value": [
+      "troll",
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
+  },
+  "o": {
+    "type": "monster",
+    "value": [
+      "troll",
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
+  },
+  "q": {
+    "type": "monster",
+    "value": [
+      "troll",
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
+  },
+  "r": {
+    "type": "monster",
+    "value": [
+      "troll",
+      "turtle"
+    ],
+    "rewards": {
+      "hp": 2,
+      "cards": [
+        "punch",
+        "charge"
+      ]
+    }
+  },
+  "s": {
+    "type": "monster",
+    "value": [
+      "boss"
+    ]
   }
 }

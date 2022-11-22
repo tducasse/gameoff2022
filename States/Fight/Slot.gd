@@ -35,4 +35,3 @@ func _on_card_clicked():
 		play_card()
 	else:
 		Sounds.play_sfx(gm.meep_merp)
-		print("not enough mana")

@@ -72,8 +72,9 @@ func _on_turn_changed():
 		# TODO: replace with an animation
 		yield(get_tree().create_timer(0.5), "timeout")
 		end_turn()
-		nb_turn = nb_turn + 1
+		
 	else:
+		nb_turn = nb_turn + 1
 		plan_action()
 		advertise_action()
 
@@ -139,7 +140,9 @@ func plan_action():
 
 
 func plan_sequence_action():
-	next_action = gm.actions.get(monster.actions[nb_turn % len(monster.actions)]).duplicate()
+	var action = monster.actions[nb_turn % len(monster.actions)]
+	next_action = gm.actions.get(action).duplicate()
+	next_action["id"] = action
 
 
 func plan_random_action():
