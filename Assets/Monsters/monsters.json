@@ -20,23 +20,163 @@
     ]
   },
   "turtle": {
-    "image":"turtle.png",
+    "image": "turtle.png",
     "name": "turtle",
     "style": "sequence",
     "hp": 10,
     "actions": [
-      "barricade", "punch"
+      "barricade",
+      "punch"
+    ]
+  },
+  "troll2": {
+    "hp": 20,
+    "name": "troll",
+    "image": "troll.png",
+    "style": "random",
+    "actions": [
+      {
+        "id": "punch",
+        "weight": 2
+      },
+      {
+        "id": "kick",
+        "weight": 2
+      },
+      {
+        "id": "kick3",
+        "weight":1
+      },
+      {
+        "id": "barricade",
+        "weight": 1
+      }
+    ]
+  },
+  "turtle2": {
+    "image": "turtle.png",
+    "name": "turtle",
+    "style": "sequence",
+    "hp": 20,
+    "actions": [
+      "barricade",
+      "punch",
+      "punch2"
+    ]
+  },
+  "troll3": {
+    "hp": 30,
+    "name": "troll",
+    "image": "troll.png",
+    "style": "random",
+    "actions": [
+      {
+        "id": "punch2",
+        "weight": 3
+      },
+      {
+        "id": "kick2",
+        "weight": 2
+      },
+      {
+        "id": "kick3",
+        "weight": 1
+      },
+      {
+        "id": "barricade",
+        "weight": 1
+      }
+    ]
+  },
+  "turtle3": {
+    "image": "turtle.png",
+    "name": "turtle",
+    "style": "sequence",
+    "hp": 30,
+    "actions": [
+      "barricade3",
+      "punch3"
+    ]
+  },
+  "troll4": {
+    "hp": 40,
+    "name": "troll",
+    "image": "troll.png",
+    "style": "random",
+    "actions": [
+      {
+        "id": "punch3",
+        "weight": 3
+      },
+      {
+        "id": "kick2",
+        "weight": 2
+      },
+      {
+        "id": "kick4",
+        "weight": 1
+      },
+      {
+        "id": "barricade",
+        "weight": 1
+      }
+    ]
+  },
+  "turtle4": {
+    "image": "turtle.png",
+    "name": "turtle",
+    "style": "sequence",
+    "hp": 40,
+    "actions": [
+      "barricade3",
+      "punch4"
+    ]
+  },
+  "troll5": {
+    "hp": 50,
+    "name": "troll",
+    "image": "troll.png",
+    "style": "random",
+    "actions": [
+      {
+        "id": "punch4",
+        "weight": 3
+      },
+      {
+        "id": "kick4",
+        "weight": 1
+      },
+      {
+        "id": "barricade3",
+        "weight": 1
+      }
+    ]
+  },
+  "turtle5": {
+    "image": "turtle.png",
+    "name": "turtle",
+    "style": "sequence",
+    "hp": 50,
+    "actions": [
+      "barricade3",
+      "kick3",
+      "punch3"
     ]
   },
   "boss": {
     "image": "boss.png",
-    "hp": 50,
+    "hp": 70,
     "last": true,
     "name": "the big boss",
     "style": "sequence",
     "actions": [
-      "barricade",
-      "barricade",
+      "barricade2",
+      "barricade3",
+      "explosion",
+      "barricade3",
+      "kick3",
+      "punch4",
+      "explosion",
       "explosion"
     ]
   }

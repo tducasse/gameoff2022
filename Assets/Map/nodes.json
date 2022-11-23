@@ -3,14 +3,12 @@
     "starter": true,
     "type": "monster",
     "value": [
-      "troll",
-      "turtle"
+      "troll"
     ],
     "rewards": {
       "hp": 2,
       "cards": [
-        "punch",
-        "charge"
+        "punch"
       ]
     }
   },
@@ -23,8 +21,7 @@
     "rewards": {
       "hp": 2,
       "cards": [
-        "punch",
-        "charge"
+        "barricade"
       ]
     }
   },
@@ -37,8 +34,8 @@
     "rewards": {
       "hp": 2,
       "cards": [
-        "punch",
-        "charge"
+        "barricade",
+        "blind_shield"
       ]
     }
   },
@@ -48,7 +45,8 @@
   "e": {
     "type": "monster",
     "value": [
-      "turtle"
+      "turtle2",
+      "troll2"
     ],
     "rewards": {
       "hp": 2,
@@ -61,8 +59,8 @@
   "f": {
     "type": "monster",
     "value": [
-      "troll",
-      "turtle"
+      "turtle2",
+      "troll2"
     ],
     "rewards": {
       "hp": 2,
@@ -75,8 +73,7 @@
   "g": {
     "type": "monster",
     "value": [
-      "troll",
-      "turtle"
+      "troll2", "turtle2"
     ],
     "rewards": {
       "hp": 2,
@@ -92,8 +89,7 @@
   "i": {
     "type": "monster",
     "value": [
-      "troll",
-      "turtle"
+      "troll2", "turtle2"
     ],
     "rewards": {
       "hp": 2,
@@ -106,8 +102,8 @@
   "j": {
     "type": "monster",
     "value": [
-      "troll",
-      "turtle"
+      "troll3",
+      "turtle3"
     ],
     "rewards": {
       "hp": 2,
@@ -120,13 +116,13 @@
   "k": {
     "type": "monster",
     "value": [
-      "turtle"
+      "troll4"
     ],
     "rewards": {
-      "hp": 2,
+      "hp": 5,
       "cards": [
-        "punch",
-        "charge"
+        "bastion",
+        "flail"
       ]
     }
   },
@@ -136,70 +132,69 @@
   "m": {
     "type": "monster",
     "value": [
-      "troll",
-      "turtle"
+      "troll4",
+      "turtle4"
     ],
     "rewards": {
-      "hp": 2,
+      "hp": 6,
       "cards": [
-        "punch",
-        "charge"
+        "knives",
+        "bastion"
       ]
     }
   },
   "n": {
     "type": "monster",
     "value": [
-      "troll",
-      "turtle"
+      "troll4",
+      "turtle4"
     ],
     "rewards": {
-      "hp": 2,
+      "hp": 4,
       "cards": [
-        "punch",
-        "charge"
+        "knives",
+        "flail"
       ]
     }
   },
   "o": {
     "type": "monster",
     "value": [
-      "troll",
-      "turtle"
+      "troll5",
+      "turtle5"
     ],
     "rewards": {
-      "hp": 2,
+      "hp": 4,
       "cards": [
-        "punch",
-        "charge"
+        "flail",
+        "berserk"
       ]
     }
   },
   "q": {
     "type": "monster",
     "value": [
-      "troll",
-      "turtle"
+      "troll5",
+      "turtle5"
     ],
     "rewards": {
-      "hp": 2,
+      "hp": 4,
       "cards": [
-        "punch",
-        "charge"
+        "turtle"
       ]
     }
   },
   "r": {
     "type": "monster",
     "value": [
-      "troll",
-      "turtle"
+      "troll5",
+      "turtle5"
     ],
     "rewards": {
-      "hp": 2,
+      "hp": 10,
       "cards": [
         "punch",
-        "charge"
+        "flail"
       ]
     }
   },

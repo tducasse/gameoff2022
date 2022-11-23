@@ -26,4 +26,9 @@ margin_bottom = 310.0
 text = "Start Game"
 align = 0
 
+[node name="WinLose" type="AcceptDialog" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+window_title = ""
+
 [connection signal="pressed" from="CenterContainer/Start" to="." method="_on_Start_pressed"]

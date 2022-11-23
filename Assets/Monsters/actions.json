@@ -20,6 +20,67 @@
       "armor": 2
     }
   },
+"punch2": {
+    "name": "punch",
+    "sfx": "punch.ogg",
+    "other": {
+      "damage": 4
+    }
+  },
+  "kick2": {
+    "name": "kick",
+    "sfx": "punch.ogg",
+    "other": {
+      "damage": 5
+    }
+  },
+  "barricade2": {
+    "sfx": "barricade.ogg",
+    "name": "barricade",
+    "self": {
+      "armor": 4
+    }
+  },"punch3": {
+    "name": "punch",
+    "sfx": "punch.ogg",
+    "other": {
+      "damage": 6
+    }
+  },
+  "kick3": {
+    "name": "kick",
+    "sfx": "punch.ogg",
+    "other": {
+      "damage": 7
+    }
+  },
+  "barricade3": {
+    "sfx": "barricade.ogg",
+    "name": "barricade",
+    "self": {
+      "armor": 5
+    }
+  },"punch4": {
+    "name": "punch",
+    "sfx": "punch.ogg",
+    "other": {
+      "damage": 8
+    }
+  },
+  "kick4": {
+    "name": "kick",
+    "sfx": "punch.ogg",
+    "other": {
+      "damage": 8
+    }
+  },
+  "barricade4": {
+    "sfx": "barricade.ogg",
+    "name": "barricade",
+    "self": {
+      "armor": 8
+    }
+  },
   "explosion": {
     "sfx": "charge.ogg",
     "name": "explosion",

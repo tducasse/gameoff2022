@@ -11,6 +11,7 @@ func _ready():
 	Sounds.play_battle()
 
 
+
 func init(params):
 	Rewards.hide()
 	Rewards.dialog_text = ""

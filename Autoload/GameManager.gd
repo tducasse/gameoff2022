@@ -31,6 +31,11 @@ signal monster_dead(last)
 signal draw_card(name)
 #warning-ignore:unused_signal
 signal card_count_updated()
+#warning-ignore:unused_signal
+signal player_won()
+#warning-ignore:unused_signal
+signal player_lost()
+
 
 
 var blinking = {
@@ -44,7 +49,7 @@ var blinking = {
 
 var cards_per_turn = 4
 var starting_mana = 3
-var starting_hp = 100
+var starting_hp = 50
 var starting_armor = 0
 
 var cards = {}
@@ -85,6 +90,8 @@ func end_turn():
 	else:
 		current_turn = PLAYER.SELF
 		update_mana(starting_mana)
+		current_armor = 0
+		emit_signal("armor_changed")
 	if current_turn == PLAYER.SELF:
 		nb_player_turns = nb_player_turns + 1
 	emit_signal("turn_changed")
@@ -280,7 +287,7 @@ func player_dead():
 	root_node.remove_child(main_node)
 	main_node.call_deferred("free")
 	root_node.add_child(menu_instance)
-	print("lost")
+	emit_signal("player_dead")
 
 
 func _on_monster_dead(last):
@@ -293,7 +300,7 @@ func _on_monster_dead(last):
 		root_node.remove_child(main_node)
 		main_node.call_deferred("free")
 		root_node.add_child(menu_instance)
-		print("won")
+		emit_signal("player_win")
 		return
 	var map_instance = Map.instance()
 	var root_node = get_tree().get_root()
@@ -342,9 +349,13 @@ func blink(node, stat):
 		if not node:
 			blinking[stat] = false
 			return
-		if node.modulate == Color(1,1,1,1):
+		if node and (node.modulate == Color(1,1,1,1)):
 			node.modulate = Color(1,0,0,1)
 		else:
-			node.modulate = Color(1,1,1,1)
+			if node:
+				node.modulate = Color(1,1,1,1)
+		var tree = get_tree()
+		if not tree:
+			return
 		yield(get_tree().create_timer(0.2), "timeout")
 	blinking[stat] = false

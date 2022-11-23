@@ -65,11 +65,17 @@ func blink(node, stat):
 func _on_turn_changed():
 	if not gm.is_player_turn():
 		# TODO: replace with an animation
+		var tree = get_tree()
+		if not tree:
+			return
 		yield(get_tree().create_timer(0.5), "timeout")
 		do_action()
 		if gm.current_hp == 0:
 			return
 		# TODO: replace with an animation
+		tree = get_tree()
+		if not tree:
+			return
 		yield(get_tree().create_timer(0.5), "timeout")
 		end_turn()
 		
