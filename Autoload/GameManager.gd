@@ -34,7 +34,7 @@ signal card_count_updated()
 #warning-ignore:unused_signal
 signal player_won()
 #warning-ignore:unused_signal
-signal player_lost()
+signal player_dead()
 
 
 
@@ -49,7 +49,7 @@ var blinking = {
 
 var cards_per_turn = 4
 var starting_mana = 3
-var starting_hp = 50
+var starting_hp = 30
 var starting_armor = 0
 
 var cards = {}
@@ -345,17 +345,17 @@ func blink(node, stat):
 	if blinking[stat]:
 		return
 	blinking[stat] = true
+	var ref = weakref(node)
+	var tree = weakref(get_tree())
 	for _i in range(4):
-		if not node:
+		if not !ref.get_ref():
 			blinking[stat] = false
 			return
-		if node and (node.modulate == Color(1,1,1,1)):
-			node.modulate = Color(1,0,0,1)
+		if ref.get_ref().modulate == Color(1,1,1,1):
+			ref.get_ref().modulate = Color(1,0,0,1)
 		else:
-			if node:
-				node.modulate = Color(1,1,1,1)
-		var tree = get_tree()
-		if not tree:
+			ref.get_ref().modulate = Color(1,1,1,1)
+		if not tree.get_ref():
 			return
-		yield(get_tree().create_timer(0.2), "timeout")
+		yield(tree.get_ref().create_timer(0.2), "timeout")
 	blinking[stat] = false

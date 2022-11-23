@@ -8,7 +8,7 @@ func _ready():
 	randomize()
 	Sounds.play_menu()
 	var _signal1 = gm.connect("player_won", self, "on_player_win")
-	var _signal2 = gm.connect("player_lost", self, "on_player_lost")
+	var _signal2 = gm.connect("player_dead", self, "on_player_lost")
 	WinLose.hide()
 	WinLose.dialog_text = ""
 	WinLose.dialog_autowrap = true
@@ -30,6 +30,6 @@ func on_player_win():
 	WinLose.popup_centered_clamped(Vector2(320, 200))
 
 
-func on_player_lose():
-	WinLose.dialog_text = "YOU WON"
+func on_player_lost():
+	WinLose.dialog_text = "YOU LOST"
 	WinLose.popup_centered_clamped(Vector2(320, 200))
