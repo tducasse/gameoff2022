@@ -2,6 +2,8 @@ ITCHIO_USERNAME=tducasse
 ITCHIO_GAME=team-work-makes-the-dream-work
 EXPORT_NAME=twmtdw
 
+rm -rf build
+
 mkdir -v -p build/web
 godot -v --export "HTML5" build/web/index.html
 butler push ./build/web ${ITCHIO_USERNAME}/${ITCHIO_GAME}:web
