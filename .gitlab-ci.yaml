@@ -22,7 +22,7 @@ before_script:
 web:
   when: manual
   only:
-    - master
+    - main
   stage: web
   script:
     - mkdir -v -p build/web
@@ -32,7 +32,7 @@ web:
 mac:
   when: manual
   only:
-    - master
+    - main
   stage: mac
   script:
     - mkdir -v -p build/mac
@@ -42,7 +42,7 @@ mac:
 windows:
   when: manual
   only:
-    - master
+    - main
   stage: windows
   script:
     - mkdir -v -p build/windows
@@ -52,7 +52,7 @@ windows:
 linux:
   when: manual
   only:
-    - master
+    - main
   stage: linux
   script:
     - mkdir -v -p build/linux
