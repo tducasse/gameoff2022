@@ -25,6 +25,7 @@ func init(config):
 		sfx = load("res://Assets/Cards/SFX/" + params.sfx)
 	Picture.texture = load("res://Assets/Cards/Images/" + str(params.image))
 	Text.text = get_stats_text()
+	change_playable()
 
 
 

@@ -120,6 +120,7 @@ func _ready():
 
 
 func make_deck(all_decks, all_cards, deck_name):
+	deck = []
 	var deck_obj = all_decks.get(deck_name)
 	for card in deck_obj.cards:
 		for _i in range(card.number):
@@ -175,6 +176,9 @@ func start_game():
 	completed.indexes = []
 	completed.names = []
 	max_hp = starting_hp
+	cards = json.load_json_file("res://Assets/Cards/cards.json")
+	decks = json.load_json_file("res://Assets/Cards/decks.json")
+	make_deck(decks, cards, "default")
 	emit_signal("hp_changed")
 
 
